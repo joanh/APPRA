@@ -404,3 +404,6 @@ evol.md
 # Local Netlify folder
 .netlify
 evol2.md
+
+# Logs de conversaciones con Claude (trabajo en proceso)
+prompts/
