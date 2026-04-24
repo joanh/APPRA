@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>2DAWie - Desarrollo Web en Entorno Cliente</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+  <!-- Meta tags SEO -->
+  <meta name="description"
+    content="Aplicación de seguimiento de Resultados de Aprendizaje y Criterios de Evaluación para el módulo de Desarrollo Web en Entorno Cliente de 2º DAW" />
+  <meta name="keywords" content="DAW, Desarrollo Web, JavaScript, Cliente Web, Educación, FP" />
+  <meta name="author" content="Jose Ángel Heras" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://entornocliente2daw.netlify.app/" />
+  <meta property="og:title" content="2DAWie - Desarrollo Web en Entorno Cliente" />
+  <meta property="og:description"
+    content="Aplicación de seguimiento de RAs y CEs para Desarrollo Web en Entorno Cliente" />
+  <meta property="og:image" content="/img/portada.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://entornocliente2daw.netlify.app/" />
+  <meta name="twitter:title" content="2DAWie - Desarrollo Web en Entorno Cliente" />
+  <meta name="twitter:description"
+    content="Aplicación de seguimiento de RAs y CEs para Desarrollo Web en Entorno Cliente" />
+  <meta name="twitter:image" content="/img/portada.png" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Preconexiones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/search-suggestions.css">
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <script type="module" src="js/script.js" defer></script>
+  <script src="js/search-suggestions.js" defer></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "2DAWie - Desarrollo Web en Entorno Cliente",
+      "description": "Aplicación de seguimiento de Resultados de Aprendizaje y Criterios de Evaluación para el módulo de Desarrollo Web en Entorno Cliente de 2º DAW",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Person",
+        "name": "Jose Ángel Heras"
+      }
+    }
+    </script>
+</head>
+
+<body class="w3-black">
+  <div id="particles-js"></div>
+  <main class="page-container">
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" role="navigation"
+      aria-label="Navegación principal">
+      <!-- Avatar image in top left corner -->
+      <br>
+      <img src="./img/JSON_vector_logo.svg.png" width="150" height="150" style="width: 45%; height: auto;"
+        alt="Logo JSON" loading="lazy" />
+      <hr>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black" aria-current="page">
+        <i class="fa fa-home w3-large" aria-hidden="true"></i>
+        <p>PÁGINA<br>PRINCIPAL</p>
+      </a>
+      <a href="#RA&CE" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-large" aria-hidden="true"></i>
+        <p>RAs y CEs</p>
+      </a>
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-large" aria-hidden="true"></i>
+        <p>CONTACTO</p>
+      </a>
+    </nav>
+
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar" role="navigation" aria-label="Navegación móvil">
+      <div class="w3-bar w3-center">
+        <a href="#main" class="w3-bar-item w3-button mobile-nav-link" style="width: 33.33% !important"
+          data-target="main" onclick="return false;">
+          <i class="fa fa-home"></i>
+          <span>INICIO</span>
+        </a>
+        <a href="#RA&CE" class="w3-bar-item w3-button mobile-nav-link" style="width: 33.33% !important"
+          data-target="RA&CE" onclick="return false;">
+          <i class="fa fa-eye"></i>
+          <span>RAs y CEs</span>
+        </a>
+        <a href="#contact" class="w3-bar-item w3-button mobile-nav-link" style="width: 33.33% !important"
+          data-target="contact" onclick="return false;">
+          <i class="fa fa-envelope"></i>
+          <span>CONTACTO</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+      <!-- Inicio -->
+      <header class="w3-container w3-padding-32 w3-center" id="home">
+        <h1 class="w3-jumbo">
+          <span class="w3-hide-small">Desarrollo WEB en <b>entorno cliente</b></span>
+          <h3>Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)
+            <i class="fa fa-info-circle info-icon"
+              style="font-size: 0.5em; cursor: pointer; vertical-align: super; color: #2196F3;" onclick="showRAInfo()">
+            </i>
+          </h3>
+        </h1>
+        <img src="/img/portada.png" alt="El maravilloso mundo del desarrollo web" class="w3-image" width="750"
+          height="600" loading="eager" fetchpriority="high" />
+      </header>
+
+      <!-- Sección RA&CE -->
+      <div class="w3-content" id="RA&CE">
+        <h2 class="w3-text-light-grey">Análisis y Gestión de RAs y CEs</h2>
+        <hr style="width: 200px" class="w3-opacity" />
+
+        <!-- Panel de búsqueda y filtrado -->
+        <div class="w3-row-padding w3-center w3-margin-bottom">
+          <div class="w3-half">
+            <div class="search-container" style="position: relative;">
+              <label for="searchCE" class="sr-only">Buscar Criterios de Evaluación</label>
+              <input type="text" class="w3-input w3-border w3-round-large" placeholder="Buscar CEs" id="searchCE"
+                aria-label="Buscar Criterios de Evaluación">
+              <i class="fa fa-search"
+                style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); color: #666;"
+                aria-hidden="true"></i>
+              <i class="fa fa-times clear-search" role="button" aria-label="Limpiar búsqueda" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+                  cursor: pointer; color: #666; display: none;" onclick="clearSearch()"></i>
+              <!-- Contenedor de sugerencias -->
+              <div id="searchSuggestions" class="search-suggestions w3-card w3-round-large">
+                <div class="w3-container w3-padding-small">
+                  <small class="w3-text-grey">Términos más frecuentes:</small>
+                  <div class="suggestion-tags"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w3-half">
+            <label for="raFilter" class="sr-only">Filtrar por RA</label>
+            <select class="w3-select w3-border w3-round-large" id="raFilter"
+              aria-label="Filtrar por Resultado de Aprendizaje">
+              <option value="all">Todos los RA</option>
+              <option value="ra1">RA1</option>
+              <option value="ra2">RA2</option>
+              <option value="ra3">RA3</option>
+              <option value="ra4">RA4</option>
+              <option value="ra5">RA5</option>
+              <option value="ra6">RA6</option>
+              <option value="ra7">RA7</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Panel de control -->
+        <div class="w3-row-padding w3-center w3-margin-bottom">
+          <div class="w3-container">
+            <div class="admin-panel w3-round-large w3-padding" role="region" aria-label="Panel de control del profesor">
+              <h4>Panel del Profesor
+                <i class="fa fa-info-circle info-icon" aria-label="Información sobre el panel"
+                  style="font-size: 0.8em; cursor: pointer; vertical-align: super; color: #2196F3;"
+                  onclick="showPanelInfo()">
+                </i>
+              </h4>
+              <button class="w3-button w3-blue w3-round" onclick="raManager.saveOfficialState()"
+                aria-label="Guardar estado oficial">
+                <i class="fa fa-save" aria-hidden="true"></i> Guardar Estado Oficial
+              </button>
+              <button class="w3-button w3-blue w3-round" onclick="raManager.loadOfficialState()"
+                aria-label="Cargar estado oficial">
+                <i class="fa fa-download" aria-hidden="true"></i> Cargar Estado Oficial
+              </button>
+              <button class="w3-button w3-blue w3-round" onclick="raManager.exportToJSON()"
+                aria-label="Exportar a JSON">
+                <i class="fa fa-file-code-o" aria-hidden="true"></i> Exportar JSON
+              </button>
+              <button class="w3-button w3-blue w3-round" onclick="raManager.exportToCSV()" aria-label="Exportar a CSV">
+                <i class="fa fa-file-text-o" aria-hidden="true"></i> Exportar CSV
+              </button>
+              <button class="w3-button w3-red w3-round" onclick="raManager.resetAll()" aria-label="Reiniciar todo">
+                <i class="fa fa-refresh" aria-hidden="true"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen de progreso -->
+        <div class="w3-row-padding w3-center w3-margin-bottom">
+          <div class="w3-container">
+            <div class="progress-summary w3-round-large w3-padding">
+              <h4>Progreso Global del Módulo</h4>
+              <div class="w3-light-grey w3-round-large">
+                <div class="w3-container w3-blue w3-round-large" style="width:0%" id="globalProgress">
+                  0%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón toggle para expandir/colapsar -->
+        <div class="w3-row-padding w3-center w3-margin-bottom expand-collapse-buttons">
+          <div class="w3-container">
+            <button id="toggleAllCEs" class="w3-button w3-blue w3-round" onclick="toggleAllCEs()">
+              <i class="fa fa-chevron-down"></i> Expandir todos
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor de las tarjetas RA -->
+        <div class="ra-container">
+          <!-- RA1 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra1" data-weight="5">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra1')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA1
+                  <span class="w3-tag w3-round w3-blue">5%</span>
+                  <span class="w3-small w3-opacity">Selecciona las arquitecturas y tecnologías de programación sobre
+                    clientes web...</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra1-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="1a" data-weight="20">
+                      <td>CE 1.a</td>
+                      <td>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el
+                        cliente web.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="1b" data-weight="20">
+                      <td>CE 1.b</td>
+                      <td>Se han identificado las capacidades y mecanismos de ejecución de código de los navegadores
+                        web.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="1c" data-weight="10">
+                      <td>CE 1.c</td>
+                      <td>Se han identificado y caracterizado los principales lenguajes relacionados con la programación
+                        de clientes web.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="1d" data-weight="10">
+                      <td>CE 1.d</td>
+                      <td>Se han reconocido las particularidades de la programación de guiones y sus ventajas y
+                        desventajas sobre la programación tradicional.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="1e" data-weight="20">
+                      <td>CE 1.e</td>
+                      <td>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes
+                        de programación de clientes web.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="1f" data-weight="20">
+                      <td>CE 1.f</td>
+                      <td>Se han reconocido y evaluado las herramientas de programación y prueba sobre clientes web.
+                      </td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="1f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA2 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra2" data-weight="20">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra2')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA2
+                  <span class="w3-tag w3-round w3-blue">20%</span>
+                  <span class="w3-small w3-opacity">Escribe sentencias simples, aplicando la sintaxis del
+                    lenguaje...</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra2-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="2a" data-weight="15">
+                      <td>CE 2.a</td>
+                      <td>Se han identificado los tipos de datos, literales y sintaxis básica del lenguaje.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="2b" data-weight="15">
+                      <td>CE 2.b</td>
+                      <td>Se han utilizado estructuras de control del lenguaje.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="2c" data-weight="15">
+                      <td>CE 2.c</td>
+                      <td>Se han utilizado funciones predefinidas del lenguaje.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="2d" data-weight="15">
+                      <td>CE 2.d</td>
+                      <td>Se han utilizado comentarios en el código.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="2e" data-weight="20">
+                      <td>CE 2.e</td>
+                      <td>Se han utilizado métodos para la interacción con el usuario (entrada de datos, salida,
+                        confirmación, etc.).</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="2f" data-weight="20">
+                      <td>CE 2.f</td>
+                      <td>Se han creado y utilizado funciones definidas por el usuario.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="2f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA3 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra3" data-weight="20">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra3')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA3
+                  <span class="w3-tag w3-round w3-blue">20%</span>
+                  <span class="w3-small w3-opacity">Escribe código, identificando y aplicando las funcionalidades
+                    aportadas por los objetos predefinidos del lenguaje.</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra3-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="3a" data-weight="5">
+                      <td>CE 3.a</td>
+                      <td>Se han identificado los objetos predefinidos del lenguaje.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3b" data-weight="10">
+                      <td>CE 3.b</td>
+                      <td>Se han analizado los objetos referentes a las ventanas del navegador y los documentos web que
+                        contienen.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3c" data-weight="20">
+                      <td>CE 3.c</td>
+                      <td>Se han escrito sentencias que utilicen los objetos predefinidos del lenguaje para cambiar el
+                        aspecto del navegador y el documento que contiene.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3d" data-weight="15">
+                      <td>CE 3.d</td>
+                      <td>Se han generado textos y etiquetas como resultado de la ejecución de código en el navegador.
+                      </td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3e" data-weight="20">
+                      <td>CE 3.e</td>
+                      <td>Se han escrito sentencias que utilicen los objetos predefinidos del lenguaje para interactuar
+                        con el usuario.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3f" data-weight="10">
+                      <td>CE 3.f</td>
+                      <td>Se han utilizado las características propias del lenguaje en documentos compuestos por varias
+                        ventanas.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3g" data-weight="15">
+                      <td>CE 3.g</td>
+                      <td>Se han utilizado mecanismos del navegador web para almacenar información y recuperar su
+                        contenido.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3g" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="3h" data-weight="5">
+                      <td>CE 3.h</td>
+                      <td>Se ha depurado y documentado el código.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="3h" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA4 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra4" data-weight="15">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra4')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA4
+                  <span class="w3-tag w3-round w3-blue">15%</span>
+                  <span class="w3-small w3-opacity">Programa código para clientes web analizando y utilizando
+                    estructuras definidas por el usuario.</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra4-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="4a" data-weight="5">
+                      <td>CE 4.a</td>
+                      <td>Se han clasificado y utilizado las funciones predefinidas del lenguaje.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4b" data-weight="10">
+                      <td>CE 4.b</td>
+                      <td>Se han creado y utilizado funciones definidas por el usuario.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4c" data-weight="5">
+                      <td>CE 4.c</td>
+                      <td>Se han reconocido las características del lenguaje relativas a la creación y uso de matrices
+                        (arrays).</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4d" data-weight="10">
+                      <td>CE 4.d</td>
+                      <td>Se han creado y utilizado matrices (arrays).</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4e" data-weight="10">
+                      <td>CE 4.e</td>
+                      <td>Se han utilizado operaciones agregadas para el manejo de información almacenada en
+                        colecciones.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4f" data-weight="5">
+                      <td>CE 4.f</td>
+                      <td>Se han reconocido las características de orientación a objetos del lenguaje.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4g" data-weight="15">
+                      <td>CE 4.g</td>
+                      <td>Se ha creado código para definir la estructura de objetos.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4g" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4h" data-weight="15">
+                      <td>CE 4.h</td>
+                      <td>Se han creado métodos y propiedades.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4h" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4i" data-weight="10">
+                      <td>CE 4.i</td>
+                      <td>Se ha creado código que haga uso de objetos definidos por el usuario.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4i" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4j" data-weight="10">
+                      <td>CE 4.j</td>
+                      <td>Se han utilizado patrones de diseño de software.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4j" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="4k" data-weight="5">
+                      <td>CE 4.k</td>
+                      <td>Se ha depurado y documentado el código.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="4k" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA5 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra5" data-weight="20">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra5')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA5
+                  <span class="w3-tag w3-round w3-blue">20%</span>
+                  <span class="w3-small w3-opacity">Desarrolla aplicaciones web interactivas integrando mecanismos de
+                    manejo de eventos.</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra5-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="5a" data-weight="5">
+                      <td>CE 5.a</td>
+                      <td>Se han reconocido las posibilidades del lenguaje de marcas relativas a la captura de los
+                        eventos producidos.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5b" data-weight="15">
+                      <td>CE 5.b</td>
+                      <td>Se han identificado las características del lenguaje de programación relativas a la gestión de
+                        los eventos.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5c" data-weight="20">
+                      <td>CE 5.c</td>
+                      <td>Se han diferenciado los tipos de eventos que se pueden manejar.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5d" data-weight="10">
+                      <td>CE 5.d</td>
+                      <td>Se ha creado un código que capture y utilice eventos.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5e" data-weight="10">
+                      <td>CE 5.e</td>
+                      <td>Se han reconocido las capacidades del lenguaje relativas a la gestión de formularios web.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5f" data-weight="20">
+                      <td>CE 5.f</td>
+                      <td>Se han validado formularios web utilizando eventos.</td>
+                      <td>20%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5g" data-weight="15">
+                      <td>CE 5.g</td>
+                      <td>Se han utilizado expresiones regulares para facilitar los procedimientos de validación.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5g" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="5h" data-weight="5">
+                      <td>CE 5.h</td>
+                      <td>Se ha probado y documentado el código.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="5h" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA6 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra6" data-weight="10">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra6')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA6
+                  <span class="w3-tag w3-round w3-blue">10%</span>
+                  <span class="w3-tag w3-round w3-amber">FFE Parcial</span>
+                  <span class="w3-small w3-opacity">Desarrolla aplicaciones web analizando y aplicando las
+                    características del modelo de objetos del documento.</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra6-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="6a" data-weight="10">
+                      <td>CE 6.a</td>
+                      <td>Se ha reconocido el modelo de objetos del documento de una página web.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6b" data-weight="15">
+                      <td>CE 6.b</td>
+                      <td>Se han identificado los objetos del modelo, sus propiedades y métodos.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6c" data-weight="15">
+                      <td>CE 6.c</td>
+                      <td>Se ha creado y verificado un código que acceda a la estructura del documento.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6d" data-weight="15">
+                      <td>CE 6.d</td>
+                      <td>Se han creado nuevos elementos de la estructura y modificado elementos ya existentes.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6e" data-weight="15">
+                      <td>CE 6.e</td>
+                      <td>Se han asociado acciones a los eventos del modelo.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6f" data-weight="15" class="ffe-criteria">
+                      <td>CE 6.f <i class="fa fa-building w3-text-amber" title="Criterio cursado en FFE"></i></td>
+                      <td>Se han identificado las diferencias que presenta el modelo en diferentes navegadores.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6g" data-weight="15" class="ffe-criteria">
+                      <td>CE 6.g <i class="fa fa-building w3-text-amber" title="Criterio cursado en FFE"></i></td>
+                      <td>Se han programado aplicaciones web de forma que funcionen en navegadores con diferentes
+                        implementaciones del modelo.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6g" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="6h" data-weight="15" class="ffe-criteria">
+                      <td>CE 6.h <i class="fa fa-building w3-text-amber" title="Criterio cursado en FFE"></i></td>
+                      <td>Se han depurado y documentado las aplicaciones desarrolladas.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="6h" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- RA7 -->
+          <div class="ra-card w3-card w3-round-large" data-ra="ra7" data-weight="15">
+            <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra7')">
+              <div class="w3-bar-item" style="width:90%">
+                <h3>
+                  RA7
+                  <span class="w3-tag w3-round w3-blue">15%</span>
+                  <span class="w3-tag w3-round w3-amber">FFE Parcial</span>
+                  <span class="w3-small w3-opacity">Desarrolla aplicaciones web dinámicas, reconociendo y aplicando
+                    mecanismos de comunicación asíncrona entre cliente y servidor.</span>
+                </h3>
+              </div>
+              <div class="w3-bar-item">
+                <i class="fa fa-chevron-down"></i>
+              </div>
+            </div>
+
+            <div class="ra-content w3-hide" id="ra7-content">
+              <div class="w3-responsive w3-padding">
+                <table class="w3-table-all w3-hoverable">
+                  <thead>
+                    <tr class="w3-blue">
+                      <th>Criterio</th>
+                      <th>Descripción</th>
+                      <th>Peso</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-ce="7a" data-weight="10">
+                      <td>CE 7.a</td>
+                      <td>Se han identificado las ventajas de utilizar programación asíncrona.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7a" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7b" data-weight="15">
+                      <td>CE 7.b</td>
+                      <td>Se han analizado los mecanismos disponibles para el establecimiento de la comunicación
+                        asíncrona.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7b" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7c" data-weight="15">
+                      <td>CE 7.c</td>
+                      <td>Se han utilizado los objetos relacionados.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7c" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7d" data-weight="10">
+                      <td>CE 7.d</td>
+                      <td>Se han identificado sus propiedades y sus métodos.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7d" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7e" data-weight="15">
+                      <td>CE 7.e</td>
+                      <td>Se ha utilizado comunicación asíncrona en la actualización dinámica del documento web.</td>
+                      <td>15%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7e" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7f" data-weight="10">
+                      <td>CE 7.f</td>
+                      <td>Se han utilizado distintos formatos en el envío y recepción de información.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7f" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7g" data-weight="10">
+                      <td>CE 7.g</td>
+                      <td>Se han programado aplicaciones web asíncronas de servidor.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7g" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7h" data-weight="10" class="ffe-criteria">
+                      <td>CE 7.h <i class="fa fa-building w3-text-amber" title="Criterio cursado en FFE"></i></td>
+                      <td>Se han clasificado y analizado librerías que faciliten la programación de aplicaciones web
+                        asíncronas.</td>
+                      <td>10%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7h" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr data-ce="7i" data-weight="5" class="ffe-criteria">
+                      <td>CE 7.i <i class="fa fa-building w3-text-amber" title="Criterio cursado en FFE"></i></td>
+                      <td>Se han utilizado estas librerías y frameworks.</td>
+                      <td>5%</td>
+                      <td>
+                        <button class="ce-status-btn" data-ce-id="7i" data-status="pending"
+                          onclick="raManager.toggleStatus(this)">
+                          <i class="fa fa-circle"></i>
+                          <span>No iniciado</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Fin del contenedor ra-container -->
+      </div> <!-- Fin de la sección RA&CE -->
+      <!-- Contacto -->
+      <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+        <h2 class="w3-text-light-grey">Profesor</h2>
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        José Ángel Heras
+        <hr style="width: 200px" class="w3-opacity" />
+        <div class="w3-section">
+          <p>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            Comunidad de Madrid
+          </p>
+          <hr style="width: 200px" class="w3-opacity" />
+          <p>
+            <i class="fa fa-brands fa-github" aria-hidden="true"></i>
+            <a href='https://github.com/joanh'>@Joanh</a>
+          </p>
+          <i class="" aria-hidden="true"></i>
+          <hr style="width: 200px" class="w3-opacity" />
+          <p>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <a id="emailLinkID" href="">Email</a>
+          </p>
+        </div>
+      </div>
+      <!-- Fin de la sección de contacto -->
+      <!-- Pie de página -->
+      <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+        <p class="w3-medium w3-center">
+          Hecho con <i class="fas fa-heart" style="color: #74C0FC;"></i> usando:<br>
+          <span class="tech-stack"><a href="https://html.spec.whatwg.org/" target="_blank" class="w3-hover-text-orange" title="HTML5"><i class="fab fa-html5" style="color: #E34F26;"></i></a><a href="https://www.w3schools.com/w3css/" target="_blank" class="w3-hover-text-blue" title="W3.CSS"><i class="fab fa-css3-alt" style="color: #1572B6;"></i></a><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" title="JavaScript"><i class="fab fa-js" style="color: #F7DF1E;"></i></a><a href="https://nodejs.org/" target="_blank" class="w3-hover-text-green" title="Node.js"><i class="fab fa-node-js" style="color: #68A063;"></i></a><a href="https://github.com/joanh" target="_blank" class="w3-hover-text-grey" title="GitHub"><i class="fab fa-github" style="color: #ffffff;"></i></a><a href="https://www.netlify.com" target="_blank" class="w3-hover-text-blue" title="Netlify"><i class="fas fa-cloud" style="color: #00C7B7;"></i></a><a href="https://www.anthropic.com/claude" target="_blank" class="w3-hover-text-purple" title="Claude AI"><i class="fas fa-robot" style="color: #9B30FF;"></i></a></span>
+        </p>
+      </footer>
+    </div>
+    <!-- Fin de contenido -->
+
+    <!-- JavaScript particles vía CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Acordeón -->
+    <script>
+      function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+    <button id="scrollToTop" class="scroll-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </button>
+</body>
+
+</html>

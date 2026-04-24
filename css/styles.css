@@ -1,0 +1,637 @@
+/* Añadir al inicio del archivo CSS */
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* Ajuste para compensar la altura del menú fijo */
+#main, #RA\&CE, #contact {
+    scroll-margin-top: 50px !important;
+}
+
+/* Particles */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  background-color: #000;
+}
+
+#main {
+  margin-left: 72px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
+  z-index: 1;
+  padding: 15px;
+}
+
+/* Estilos base para RA&CE */
+.ra-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* Estilos para las tarjetas RA */
+.ra-card {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.ra-card:hover {
+  transform: translateX(5px);
+}
+
+.ra-header {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+  background-color: rgba(33, 33, 33, 0.95) !important;
+}
+
+.ra-header:hover {
+  background-color: rgba(51, 51, 51, 0.95) !important;
+}
+
+.ra-header i {
+  transition: transform 0.3s;
+}
+
+.ra-header.active i {
+  transform: rotate(180deg);
+}
+
+/* Reset y estilos base para las tablas */
+.w3-table-all {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  border: 1px solid #333 !important;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Cabecera de la tabla */
+.w3-table-all thead tr.w3-blue {
+  background-color: #1565C0 !important;
+  color: white !important;
+  font-weight: bold;
+  border-bottom: 2px solid #0D47A1;
+}
+
+.w3-table-all thead th {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+/* Cuerpo de la tabla */
+.w3-table-all tbody tr {
+  border-bottom: 1px solid #333;
+  background-color: #1E1E1E !important;
+}
+
+.w3-table-all tbody tr:nth-child(odd) {
+  background-color: #262626 !important;
+}
+
+.w3-table-all tbody tr:hover {
+  background-color: #323232 !important;
+}
+
+.w3-table-all td {
+  padding: 12px 8px;
+}
+
+/* Selects dentro de las tablas */
+.w3-table-all .ce-status {
+  width: 100%;
+  background-color: #323232 !important;
+  color: white !important;
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.w3-table-all .ce-status:hover {
+  border-color: #1976D2;
+}
+
+.w3-table-all .ce-status:focus {
+  border-color: #1976D2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Estilos para el progreso */
+.progress-summary {
+  background-color: rgba(0,0,0,0.8);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.progress-summary .w3-container {
+  min-height: 24px;
+  transition: width 0.5s ease;
+  background: #74C0FC;
+  border-radius: 4px;
+}
+
+/* Criterios FFE */
+.ffe-criteria {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+}
+
+.ffe-criteria td:first-child {
+  position: relative;
+}
+
+.ffe-criteria .fa-building {
+  margin-left: 0.5rem;
+  color: #ffc107;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ra-header h3 {
+    font-size: 1rem;
+  }
+  
+  .w3-table-all {
+    font-size: 0.9rem;
+  }
+  
+  .w3-tag {
+    font-size: 0.8rem;
+  }
+  
+  .ra-filters {
+    flex-direction: column;
+  }
+}
+
+/* Restaurar el fondo oscuro del menú lateral */
+.w3-bar-block {
+  background-color: #000 !important;
+}
+
+/* Asegurar que el fondo principal es oscuro */
+body {
+  background-color: #000;
+}
+
+/* Asegurar que el contenido está por encima de particles */
+#main, .w3-bar-block {
+  position: relative;
+  z-index: 1;
+}
+
+/* Asegurar que el contenido de los RA es visible */
+.ra-content {
+  background-color: rgba(25, 25, 25, 0.95) !important;
+  padding: 1rem;
+}
+
+/* Estilos para la búsqueda */
+.highlight {
+  background-color: rgba(255, 193, 7, 0.3);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.match-count {
+  margin-left: 1rem;
+  font-size: 0.8em;
+}
+
+.search-results {
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #fff;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+}
+
+/* Ajuste para el contenedor de búsqueda */
+#searchCriteria {
+  margin-bottom: 0.5rem;
+}
+
+.sidenav {
+  width: 120px;
+  z-index: 2;
+  position: fixed;
+  height: 100vh;
+  background-color: #000 !important;
+}
+
+@media screen and (max-width: 992px) {
+    .sidenav {
+        transform: translateX(-120px);
+        transition: transform 0.3s;
+    }
+
+    .sidenav.show {
+        transform: translateX(0);
+    }
+
+    #main {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Estilos para los botones de estado */
+.ce-status-btn {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.ce-status-btn i {
+    font-size: 1.2em;
+}
+
+/* Estados del semáforo */
+.ce-status-btn[data-status="pending"] {
+    color: #ff4444;
+}
+
+.ce-status-btn[data-status="in-progress"] {
+    color: #ffbb33;
+}
+
+.ce-status-btn[data-status="completed"] {
+    color: #00C851;
+}
+
+/* Barra de progreso global */
+#globalProgress {
+    transition: width 0.3s ease;
+}
+
+/* Sidebar con máxima especificidad */
+body .w3-sidebar.w3-bar-block {
+    width: 72px !important;
+    position: fixed !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000 !important;
+    backdrop-filter: blur(3px) !important;
+}
+
+/* Enlaces del menú con máxima especificidad */
+body .w3-sidebar.w3-bar-block a.w3-bar-item {
+    padding: 12px 4px !important;
+    font-size: 0.95em !important;
+    text-align: center !important;
+    transition: background-color 0.3s !important;
+    display: block !important;
+    background-color: transparent !important;
+}
+
+/* Iconos específicamente */
+body .w3-sidebar.w3-bar-block a.w3-bar-item i {
+    font-size: 2em !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Texto del menú específicamente */
+body .w3-sidebar.w3-bar-block a.w3-bar-item span {
+    display: block !important;
+    width: 100% !important;
+    font-size: 1em !important;
+    line-height: 1.2 !important;
+}
+
+/* Hover con máxima especificidad */
+body .w3-sidebar.w3-bar-block a.w3-bar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Contenido principal */
+body #main {
+    margin-left: 72px !important;
+    padding: 15px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+@media screen and (max-width: 992px) {
+    body #main {
+        margin-left: 0 !important;
+    }
+}
+
+/* Estilos para el menú móvil con máxima especificidad */
+body #myNavbar {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(3px);
+}
+
+body #myNavbar .w3-bar {
+    background-color: transparent !important;
+}
+
+body #myNavbar .w3-bar-item {
+    color: white !important;
+    padding: 12px 4px !important;
+    font-size: 0.9em !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+}
+
+body #myNavbar .w3-bar-item i {
+    display: block !important;
+    font-size: 1.5em !important;
+    margin-bottom: 4px !important;
+    color: white !important;
+}
+
+body #myNavbar .w3-bar-item span {
+    display: block !important;
+    font-size: 0.8em !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* Hover state */
+body #myNavbar .w3-bar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Eliminar cualquier clase de opacidad que pueda estar interfiriendo */
+.w3-opacity, .w3-hover-opacity {
+    opacity: 1 !important;
+}
+
+/* Asegurar que el menú móvil está por encima de todo */
+.w3-top.w3-hide-large.w3-hide-medium {
+    z-index: 9999 !important;
+    position: fixed !important;
+}
+
+#myNavbar {
+    z-index: 9999 !important;
+    position: relative !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+#myNavbar .w3-bar {
+    position: relative !important;
+    z-index: 10000 !important;
+}
+
+/* Asegurar que los enlaces son clickeables */
+#myNavbar .w3-bar-item {
+    position: relative !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+}
+
+/* Asegurar que particles.js no interfiere */
+#particles-js {
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* Contenido principal */
+#main {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Ajustes de espaciado para móviles con máxima especificidad */
+@media screen and (max-width: 768px) {
+    /* Contenedor principal */
+    body .w3-container #searchCriteria {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Input de búsqueda */
+    body .w3-container #searchInput {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        padding: 8px !important;
+    }
+
+    /* Selector de RA */
+    body .w3-container #raFilter {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        padding: 8px !important;
+    }
+
+    /* Panel del profesor */
+    body .w3-container #teacherPanel {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 10px !important;
+        width: 100% !important;
+    }
+
+    /* Botones en el panel */
+    body .w3-container #teacherPanel .w3-button {
+        width: 100% !important;
+        margin: 5px 0 !important;
+        padding: 10px !important;
+    }
+
+    /* Mantener el color rojo del botón reset */
+    body .w3-container #teacherPanel .w3-button[onclick*="resetEstados"] {
+        background-color: #f44336 !important;
+    }
+}
+
+/* Botón scroll to top */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(33, 150, 243, 0.8);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top:hover {
+    background-color: rgba(33, 150, 243, 0.95);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-top i {
+    font-size: 1.2em;
+}
+
+.scroll-to-top.visible {
+    display: flex;
+}
+
+/* Estilos para panel de búsqueda y control */
+@media screen and (max-width: 768px) {
+    /* Panel de búsqueda */
+    .w3-row-padding .w3-half {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Input y select */
+    #searchCE,
+    #raFilter {
+        width: 100% !important;
+        margin: 5px 0 !important;
+    }
+
+    /* Panel del profesor */
+    .admin-panel {
+        padding: 15px !important;
+    }
+
+    .admin-panel h4 {
+        margin-bottom: 15px !important;
+    }
+
+    /* Contenedor de botones */
+    .admin-panel .w3-button {
+        display: block !important;
+        width: 100% !important;
+        margin: 8px 0 !important;
+        padding: 8px 16px !important;
+    }
+
+    /* Barra de progreso */
+    .progress-summary {
+        margin-top: 20px !important;
+    }
+
+    /* Ajuste de márgenes generales */
+    .w3-row-padding {
+        margin: 0 !important;
+        padding: 0 10px !important;
+    }
+
+    .w3-container {
+        padding: 0 !important;
+    }
+}
+
+/* Centrado de la sección de contacto */
+#contact {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#contact > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Estilos del footer */
+footer .tech-stack {
+    display: inline-flex;
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .tech-stack i {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+footer .tech-stack i:hover {
+    transform: scale(1.2);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+/* Estilo para iconos pequeños en SweetAlert2 */
+.small-icon {
+    font-size: 2em !important;
+    width: 2em !important;
+    height: 2em !important;
+    margin: 0.5em auto 1em !important;
+}
+
+/* Espaciado para botones en móvil */
+@media screen and (max-width: 768px) {
+    .expand-collapse-buttons .w3-button {
+        margin: 5px !important;
+        display: inline-block !important;
+        width: calc(50% - 10px) !important;
+    }
+}
+
+/* Clase para elementos visualmente ocultos pero accesibles para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* Mejorar el contraste de los botones en hover */
+.w3-button:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Asegurar que los enlaces son claramente distinguibles */
+a:focus {
+    outline: 2px solid #2196F3;
+    outline-offset: 2px;
+}
+
+/* Mejorar la visibilidad del foco en elementos interactivos */
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid #2196F3;
+    outline-offset: 2px;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}

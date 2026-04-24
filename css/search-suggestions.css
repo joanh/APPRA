@@ -1,0 +1,31 @@
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    z-index: 1000;
+    margin-top: 5px;
+    display: none;
+}
+
+.suggestion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.suggestion-tag {
+    background: #2196F3;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.suggestion-tag:hover {
+    background: #1976D2;
+} 
