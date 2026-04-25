@@ -4,20 +4,23 @@
     "nombre": "Desarrollo Web en Entorno Cliente",
     "abreviatura": "DWEC",
     "curso": "2º DAW",
-    "ciclo": "Desarrollo de Aplicaciones Web"
+    "ciclo": "Desarrollo de Aplicaciones Web",
+    "imagen": "img/portada.png"
   },
   {
     "id": "1daw-ed",
     "nombre": "Entornos de Desarrollo",
     "abreviatura": "ED",
     "curso": "1º DAW",
-    "ciclo": "Desarrollo de Aplicaciones Web"
+    "ciclo": "Desarrollo de Aplicaciones Web",
+    "imagen": "img/portada2.png"
   },
   {
     "id": "2asir-sad",
     "nombre": "Seguridad y Alta Disponibilidad",
     "abreviatura": "SAD",
     "curso": "2º ASIR",
-    "ciclo": "Administración de Sistemas Informáticos en Red"
+    "ciclo": "Administración de Sistemas Informáticos en Red",
+    "imagen": "img/portada3.png"
   }
 ]

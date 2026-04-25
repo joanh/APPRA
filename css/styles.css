@@ -635,3 +635,62 @@ select:focus {
     outline-offset: 2px;
     box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
 }
+
+/* ---------- Modos: landing vs módulo activo ---------- */
+/* Por defecto (sin data-mode) ocultamos lo de módulo para evitar parpadeo. */
+[data-show="module"] { display: none; }
+[data-show="landing"] { display: block; }
+body[data-mode="module"] [data-show="module"] { display: block; }
+body[data-mode="module"] [data-show="landing"] { display: none; }
+body[data-mode="landing"] [data-show="module"] { display: none; }
+body[data-mode="landing"] [data-show="landing"] { display: block; }
+
+/* Hero de portada */
+.landing-hero {
+    padding: 1rem 0 2rem;
+}
+.landing-logo {
+    display: inline-block;
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 12px rgba(33, 150, 243, 0.4));
+}
+.landing-hero h1 {
+    margin: 0.25em 0;
+    letter-spacing: 0.08em;
+    color: #fff;
+}
+.landing-hero h3 {
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+}
+.landing-lead {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #cfd8dc;
+}
+.landing-lead a {
+    color: #2196F3;
+    text-decoration: underline;
+}
+
+/* Selector de módulo: más prominente en landing */
+body[data-mode="landing"] #moduleSelector {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    padding: 0.7rem 1rem;
+}
+
+/* Hero de módulo activo */
+.module-hero h1 {
+    margin: 0.25em 0;
+}
+.module-hero img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}

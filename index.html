@@ -2,31 +2,31 @@
 <html lang="es">
 
 <head>
-  <title>2DAWie - Desarrollo Web en Entorno Cliente</title>
+  <title>APPRA · Asistente de RAs y CEs para FP</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
   <!-- Meta tags SEO -->
   <meta name="description"
-    content="Aplicación de seguimiento de Resultados de Aprendizaje y Criterios de Evaluación para el módulo de Desarrollo Web en Entorno Cliente de 2º DAW" />
-  <meta name="keywords" content="DAW, Desarrollo Web, JavaScript, Cliente Web, Educación, FP" />
+    content="APPRA: asistente para profesores y alumnos de Formación Profesional. Consulta los Resultados de Aprendizaje y Criterios de Evaluación de los módulos de Informática, extraídos de los Reales Decretos oficiales del BOE." />
+  <meta name="keywords" content="APPRA, FP, Formación Profesional, RA, CE, DAW, ASIR, DAM, BOE, Informática, Educación" />
   <meta name="author" content="Jose Ángel Heras" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://entornocliente2daw.netlify.app/" />
-  <meta property="og:title" content="2DAWie - Desarrollo Web en Entorno Cliente" />
+  <meta property="og:url" content="https://appra.netlify.app/" />
+  <meta property="og:title" content="APPRA · Asistente de RAs y CEs para FP" />
   <meta property="og:description"
-    content="Aplicación de seguimiento de RAs y CEs para Desarrollo Web en Entorno Cliente" />
-  <meta property="og:image" content="/img/portada.png" />
+    content="Consulta los Resultados de Aprendizaje y Criterios de Evaluación de los módulos de Informática de FP, extraídos del BOE oficial con Claude Opus 4.7." />
+  <meta property="og:image" content="/img/JSON_vector_logo.svg.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://entornocliente2daw.netlify.app/" />
-  <meta name="twitter:title" content="2DAWie - Desarrollo Web en Entorno Cliente" />
+  <meta name="twitter:url" content="https://appra.netlify.app/" />
+  <meta name="twitter:title" content="APPRA · Asistente de RAs y CEs para FP" />
   <meta name="twitter:description"
-    content="Aplicación de seguimiento de RAs y CEs para Desarrollo Web en Entorno Cliente" />
-  <meta name="twitter:image" content="/img/portada.png" />
+    content="Consulta los Resultados de Aprendizaje y Criterios de Evaluación de los módulos de Informática de FP, extraídos del BOE oficial con Claude Opus 4.7." />
+  <meta name="twitter:image" content="/img/JSON_vector_logo.svg.png" />
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
@@ -59,8 +59,8 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "2DAWie - Desarrollo Web en Entorno Cliente",
-      "description": "Aplicación de seguimiento de Resultados de Aprendizaje y Criterios de Evaluación para el módulo de Desarrollo Web en Entorno Cliente de 2º DAW",
+      "name": "APPRA · Asistente de RAs y CEs para FP",
+      "description": "Asistente para profesores y alumnos de Formación Profesional que consulta los Resultados de Aprendizaje y Criterios de Evaluación de los módulos de Informática.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
       "author": {
@@ -121,24 +121,35 @@
     <div class="w3-padding-large" id="main">
       <!-- Inicio -->
       <header class="w3-container w3-padding-32 w3-center" id="home">
-        <h1 class="w3-jumbo">
-          <span class="w3-hide-small">Desarrollo WEB en <b>entorno cliente</b></span>
-          <h3>Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)
+        <!-- Hero de portada (visible sin módulo seleccionado) -->
+        <div class="landing-hero" data-show="landing">
+          <img src="/img/JSON_vector_logo.svg.png" alt="APPRA" class="w3-image landing-logo"
+            width="200" height="200" loading="eager" fetchpriority="high" />
+          <h1 class="w3-jumbo">APPRA</h1>
+          <h3 class="w3-text-light-grey">Asistente de RAs y CEs para Formación Profesional</h3>
+          <p class="landing-lead">
+            Selecciona tu módulo para consultar sus
+            <a href="#" onclick="showRAInfo(); return false;">Resultados de Aprendizaje y Criterios de Evaluación</a>.
+          </p>
+        </div>
+
+        <!-- Hero del módulo (visible con módulo seleccionado) -->
+        <div class="module-hero" data-show="module">
+          <h1 class="w3-jumbo" id="moduleTitle"></h1>
+          <h3 class="w3-text-light-grey" id="moduleSubtitle"></h3>
+          <p class="w3-small w3-opacity">
+            Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)
             <i class="fa fa-info-circle info-icon"
-              style="font-size: 0.5em; cursor: pointer; vertical-align: super; color: #2196F3;" onclick="showRAInfo()">
-            </i>
-          </h3>
-        </h1>
-        <img src="/img/portada.png" alt="El maravilloso mundo del desarrollo web" class="w3-image" width="750"
-          height="600" loading="eager" fetchpriority="high" />
+              style="cursor: pointer; color: #2196F3;" onclick="showRAInfo()"></i>
+          </p>
+          <img id="moduleImage" src="" alt="" class="w3-image" width="750"
+            height="600" loading="eager" fetchpriority="high" />
+        </div>
       </header>
 
       <!-- Sección RA&CE -->
       <div class="w3-content" id="RA&CE">
-        <h2 class="w3-text-light-grey">Análisis y Gestión de RAs y CEs</h2>
-        <hr style="width: 200px" class="w3-opacity" />
-
-        <!-- Selector de módulo -->
+        <!-- Selector de módulo (siempre visible) -->
         <div class="w3-row-padding w3-center w3-margin-bottom">
           <div class="w3-container">
             <label for="moduleSelector" class="sr-only">Selector de módulo</label>
@@ -149,6 +160,11 @@
             <div id="moduleInfo" class="w3-small w3-text-grey w3-padding-small"></div>
           </div>
         </div>
+
+        <!-- Bloque que solo aparece con un módulo activo -->
+        <div data-show="module">
+        <h2 class="w3-text-light-grey w3-center">Análisis y Gestión de RAs y CEs</h2>
+        <hr style="width: 200px" class="w3-opacity" />
 
         <!-- Panel de búsqueda y filtrado -->
         <div class="w3-row-padding w3-center w3-margin-bottom">
@@ -239,6 +255,7 @@
         <div class="ra-container">
           <!-- Las tarjetas RA se generan dinámicamente desde JSON/modulos/<id>.json -->
         </div> <!-- Fin del contenedor ra-container -->
+        </div> <!-- Fin del bloque data-show="module" -->
       </div> <!-- Fin de la sección RA&CE -->
       <!-- Contacto -->
       <div class="w3-padding-64 w3-content w3-text-grey" id="contact">

@@ -52,6 +52,7 @@ const MODULOS = [
     ciclo: 'Desarrollo de Aplicaciones Web',
     familia: 'Informática y Comunicaciones',
     grado: 'Superior',
+    imagen: 'img/portada.png',
   },
   {
     id: '1daw-ed',
@@ -62,6 +63,7 @@ const MODULOS = [
     ciclo: 'Desarrollo de Aplicaciones Web',
     familia: 'Informática y Comunicaciones',
     grado: 'Superior',
+    imagen: 'img/portada2.png',
   },
   {
     id: '2asir-sad',
@@ -72,6 +74,7 @@ const MODULOS = [
     ciclo: 'Administración de Sistemas Informáticos en Red',
     familia: 'Informática y Comunicaciones',
     grado: 'Superior',
+    imagen: 'img/portada3.png',
   },
 ];
 
@@ -277,12 +280,13 @@ async function main() {
   }
 
   // Índice ligero para el selector de módulos del frontend.
-  const indice = MODULOS.map(({ id, nombre, abreviatura, curso, ciclo }) => ({
+  const indice = MODULOS.map(({ id, nombre, abreviatura, curso, ciclo, imagen }) => ({
     id,
     nombre,
     abreviatura,
     curso,
     ciclo,
+    imagen,
   }));
   const rutaIndice = path.join('JSON', 'modulos', 'modulos.json');
   fs.writeFileSync(rutaIndice, JSON.stringify(indice, null, 2), 'utf8');
