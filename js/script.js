@@ -1,5 +1,6 @@
 import { PARTICLE_CONFIG } from "./constants.js";
 import { RAManager } from './modules/raManager.js';
+import { ModuleLoader } from './modules/moduleLoader.js';
 
 // Gestor de acceso administrativo
 const AdminManager = {
@@ -58,8 +59,10 @@ const AdminManager = {
 // Inicializar el fondo de partículas
 particlesJS("particles-js", PARTICLE_CONFIG);
 
-// Crear instancia global del gestor de RAs
+// Crear instancia global del gestor de RAs y cargador de módulos
 window.raManager = new RAManager();
+window.moduleLoader = new ModuleLoader(window.raManager);
+window.moduleLoader.init();
 
 // Configurar el enlace de email (codificado por seguridad)
 const emailForm = document.getElementById("emailLinkID");
@@ -181,12 +184,10 @@ window.clearSearch = function() {
     searchInput.value = '';
     clearIcon.style.display = 'none';
 
-    // Restablecer visibilidad de todos los elementos
-    document.querySelectorAll('.ce-item').forEach(ce => ce.style.display = 'block');
-    document.querySelectorAll('.ra-section').forEach(ra => ra.style.display = 'block');
-    
+    document.querySelectorAll('.ra-card').forEach(card => card.style.display = '');
+    document.querySelectorAll('.ra-card tbody tr').forEach(row => row.style.display = '');
+
     searchInput.dispatchEvent(new Event('input'));
-    if (typeof updateProgress === 'function') updateProgress();
 };
 
 // Configurar búsqueda inteligente cuando el DOM esté listo
@@ -308,5 +309,3 @@ if (window.trustedTypes && trustedTypes.createPolicy) {
     });
 }
 
-// Mejorar el manejo de eventos touch
-document.addEventListener('touchstart', handler, {passive: true});

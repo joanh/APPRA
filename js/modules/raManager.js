@@ -1,324 +1,270 @@
-// Módulo para gestionar los RA y CE
+// Gestor de RAs y CEs. Renderiza las tarjetas a partir del JSON del módulo
+// activo y mantiene su estado de progreso en localStorage, namespaceado por
+// módulo (ceStates_<id>) para que cambiar de módulo no pise el progreso.
+
+const ESTADOS = {
+  pending: 'No iniciado',
+  'in-progress': 'En progreso',
+  completed: 'Completado',
+};
+
+const SIGUIENTE_ESTADO = {
+  pending: 'in-progress',
+  'in-progress': 'completed',
+  completed: 'pending',
+};
+
 export class RAManager {
   constructor() {
-    this.initializeListeners();
-    this.loadSavedStates();
+    this.moduleId = null;
+    this.moduleData = null;
     this.setupSearch();
-    this.OFFICIAL_STATE_KEY = 'officialRAState';
-    this.OFFICIAL_STATE_FILE = '/official-state.json';
-    
-    // Añadir esto al constructor para que se ejecute al iniciar
-    this.updateTableHeaders();
   }
 
-  initializeListeners() {
-    // Si necesitas inicializar algo más
-    this.updateProgress();
+  // --- Render ---------------------------------------------------------------
+
+  renderModule(moduleData) {
+    this.moduleData = moduleData;
+    this.moduleId = moduleData.id;
+
+    const contenedor = document.querySelector('.ra-container');
+    if (!contenedor) return;
+    contenedor.innerHTML = moduleData.resultadosAprendizaje
+      .map((ra) => this.htmlRA(ra))
+      .join('');
+
+    this.poblarFiltroRAs(moduleData.resultadosAprendizaje);
+    this.cargarEstadosGuardados();
+    this.actualizarProgreso();
+  }
+
+  htmlRA(ra) {
+    const filas = ra.criteriosEvaluacion.map((ce) => this.htmlCE(ra.numero, ce)).join('');
+    const resumen = ra.descripcion.length > 110
+      ? ra.descripcion.slice(0, 107) + '...'
+      : ra.descripcion;
+    return `
+      <div class="ra-card w3-card w3-round-large" data-ra="ra${ra.numero}" data-weight="${ra.peso}">
+        <div class="ra-header w3-bar w3-black w3-padding" onclick="toggleRA('ra${ra.numero}')">
+          <div class="w3-bar-item" style="width:90%">
+            <h3>
+              RA${ra.numero}
+              <span class="w3-tag w3-round w3-blue">${ra.peso}%</span>
+              <span class="w3-small w3-opacity">${this.escapar(resumen)}</span>
+            </h3>
+          </div>
+          <div class="w3-bar-item"><i class="fa fa-chevron-down"></i></div>
+        </div>
+        <div class="ra-content w3-hide" id="ra${ra.numero}-content">
+          <div class="w3-responsive w3-padding">
+            <table class="w3-table-all w3-hoverable">
+              <thead>
+                <tr class="w3-blue">
+                  <th>CE</th><th>Descripción</th><th>Peso</th><th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>${filas}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  htmlCE(numeroRA, ce) {
+    const ffe = ce.ffe
+      ? ' <i class="fa fa-building w3-text-amber" title="Criterio cursado en FCT"></i>'
+      : '';
+    const claseFila = ce.ffe ? ' class="ffe-criteria"' : '';
+    const letra = ce.id.replace(/^\d+/, '');
+    return `
+      <tr data-ce="${ce.id}" data-weight="${ce.peso}"${claseFila}>
+        <td>${numeroRA}.${letra}${ffe}</td>
+        <td>${this.escapar(ce.descripcion)}</td>
+        <td>${ce.peso}%</td>
+        <td>
+          <button class="ce-status-btn" data-ce-id="${ce.id}" data-status="pending"
+                  onclick="raManager.toggleStatus(this)">
+            <i class="fa fa-circle"></i>
+            <span>No iniciado</span>
+          </button>
+        </td>
+      </tr>`;
+  }
+
+  poblarFiltroRAs(ras) {
+    const select = document.getElementById('raFilter');
+    if (!select) return;
+    const opciones = ['<option value="all">Todos los RA</option>']
+      .concat(ras.map((ra) => `<option value="ra${ra.numero}">RA${ra.numero}</option>`));
+    select.innerHTML = opciones.join('');
+  }
+
+  escapar(s) {
+    return String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+
+  // --- Estado de los CEs ----------------------------------------------------
+
+  claveEstados() {
+    return `ceStates_${this.moduleId}`;
   }
 
   toggleStatus(btn) {
-    const states = {
-      'pending': { next: 'in-progress', text: 'En progreso' },
-      'in-progress': { next: 'completed', text: 'Completado' },
-      'completed': { next: 'pending', text: 'No iniciado' }
-    };
-
-    const currentStatus = btn.dataset.status;
-    const nextState = states[currentStatus];
-    
-    btn.dataset.status = nextState.next;
-    btn.querySelector('span').textContent = nextState.text;
-    
-    this.saveStatus(btn.dataset.ceId, nextState.next);
-    this.updateProgress();
+    const actual = btn.dataset.status;
+    const siguiente = SIGUIENTE_ESTADO[actual];
+    btn.dataset.status = siguiente;
+    btn.querySelector('span').textContent = ESTADOS[siguiente];
+    this.guardarEstado(btn.dataset.ceId, siguiente);
+    this.actualizarProgreso();
   }
 
-  saveStatus(ceId, status) {
-    const savedStates = JSON.parse(localStorage.getItem('ceStates') || '{}');
-    savedStates[ceId] = status;
-    localStorage.setItem('ceStates', JSON.stringify(savedStates));
+  guardarEstado(ceId, status) {
+    const estados = JSON.parse(localStorage.getItem(this.claveEstados()) || '{}');
+    estados[ceId] = status;
+    localStorage.setItem(this.claveEstados(), JSON.stringify(estados));
   }
 
-  loadSavedStates() {
-    const savedStates = JSON.parse(localStorage.getItem('ceStates') || '{}');
-    Object.entries(savedStates).forEach(([ceId, status]) => {
+  cargarEstadosGuardados() {
+    const estados = JSON.parse(localStorage.getItem(this.claveEstados()) || '{}');
+    Object.entries(estados).forEach(([ceId, status]) => {
       const btn = document.querySelector(`button[data-ce-id="${ceId}"]`);
       if (btn) {
-        const states = {
-          'pending': 'No iniciado',
-          'in-progress': 'En progreso',
-          'completed': 'Completado'
-        };
         btn.dataset.status = status;
-        btn.querySelector('span').textContent = states[status];
+        const span = btn.querySelector('span');
+        if (span) span.textContent = ESTADOS[status] || ESTADOS.pending;
       }
     });
-    this.updateProgress();
   }
 
-  updateProgress() {
+  actualizarProgreso() {
     const buttons = document.querySelectorAll('.ce-status-btn');
     let total = 0;
-    let completed = 0;
-
-    buttons.forEach(btn => {
-      const weight = parseInt(btn.closest('tr').dataset.weight) || 1;
-      total += weight;
-      
-      switch(btn.dataset.status) {
-        case 'completed':
-          completed += weight;
-          break;
-        case 'in-progress':
-          completed += weight * 0.5;
-          break;
-      }
+    let hechos = 0;
+    buttons.forEach((btn) => {
+      const peso = parseInt(btn.closest('tr').dataset.weight) || 1;
+      total += peso;
+      if (btn.dataset.status === 'completed') hechos += peso;
+      else if (btn.dataset.status === 'in-progress') hechos += peso * 0.5;
     });
-
-    const progress = (completed / total) * 100;
-    const progressBar = document.getElementById('globalProgress');
-    if (progressBar) {
-      progressBar.style.width = `${progress}%`;
-      progressBar.textContent = `${Math.round(progress)}%`;
+    const pct = total > 0 ? (hechos / total) * 100 : 0;
+    const barra = document.getElementById('globalProgress');
+    if (barra) {
+      barra.style.width = `${pct}%`;
+      barra.textContent = `${Math.round(pct)}%`;
     }
   }
 
+  // --- Búsqueda -------------------------------------------------------------
+
   setupSearch() {
-    const searchInput = document.getElementById('searchCE');
-    if (searchInput) {
-      searchInput.addEventListener('input', () => this.handleSearch(searchInput.value));
-    }
+    const input = document.getElementById('searchCE');
+    if (input) input.addEventListener('input', () => this.handleSearch(input.value));
   }
 
   handleSearch(query) {
-    // Normalizar la búsqueda
     query = query.toLowerCase().trim();
-    
-    // Obtener todas las tarjetas RA y filas CE
-    const raCards = document.querySelectorAll('.ra-card');
-    
-    raCards.forEach(card => {
-      const rows = card.querySelectorAll('tbody tr');
-      let hasMatch = false;
-
-      rows.forEach(row => {
+    document.querySelectorAll('.ra-card').forEach((card) => {
+      const filas = card.querySelectorAll('tbody tr');
+      let hay = false;
+      filas.forEach((row) => {
         const ceId = row.dataset.ce || '';
-        const description = row.querySelector('td:nth-child(2)').textContent || '';
-        const matches = ceId.toLowerCase().includes(query) || 
-                      description.toLowerCase().includes(query);
-
-        // Mostrar/ocultar la fila según coincidencia
+        const descr = row.querySelector('td:nth-child(2)')?.textContent || '';
+        const matches = ceId.toLowerCase().includes(query) || descr.toLowerCase().includes(query);
         row.style.display = matches ? '' : 'none';
-        if (matches) hasMatch = true;
+        if (matches) hay = true;
       });
-
-      // Mostrar/ocultar la tarjeta RA y expandirla si hay coincidencias
-      card.style.display = hasMatch ? '' : 'none';
-      if (hasMatch) {
+      card.style.display = hay ? '' : 'none';
+      if (hay) {
         const content = card.querySelector('.ra-content');
         if (content) content.classList.remove('w3-hide');
       }
     });
   }
 
-  async saveOfficialState() {
-    const state = this.getCurrentState();
-    const officialState = {
-      lastUpdate: new Date().toISOString(),
-      globalProgress: this.calculateGlobalProgress(),
-      state: state
-    };
+  // --- Importar / exportar / reset -----------------------------------------
 
-    try {
-      // Primero guardamos en localStorage como respaldo
-      localStorage.setItem('officialStateBackup', JSON.stringify(officialState));
+  getCurrentState() {
+    const estado = {};
+    document.querySelectorAll('.ce-status-btn').forEach((btn) => {
+      const ceId = btn.dataset.ceId;
+      const status = btn.dataset.status;
+      const peso = parseInt(btn.closest('tr').dataset.weight) || 1;
+      const pct = status === 'completed' ? 100 : status === 'in-progress' ? 50 : 0;
+      estado[ceId] = { status, percentage: pct, weight: peso, lastUpdate: new Date().toISOString() };
+    });
+    return estado;
+  }
 
-      // Intentamos actualizar el archivo en GitHub usando la función serverless
-      const response = await fetch('/.netlify/functions/updateGitHub', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(officialState)
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        alert('Estado oficial guardado correctamente en GitHub');
-      } else {
-        throw new Error('No se pudo guardar en GitHub');
+  loadState(state) {
+    Object.entries(state).forEach(([ceId, data]) => {
+      const btn = document.querySelector(`[data-ce-id="${ceId}"]`);
+      if (btn) {
+        const status = typeof data === 'object' ? data.status : data;
+        btn.dataset.status = status;
+        const span = btn.querySelector('span');
+        if (span) span.textContent = ESTADOS[status] || ESTADOS.pending;
       }
-    } catch (error) {
-      console.error('Error:', error);
-      // Fallback: Descarga manual
-      const blob = new Blob([JSON.stringify(officialState, null, 2)], 
-                          { type: 'application/json' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'official-state.json';
-      a.click();
-      window.URL.revokeObjectURL(url);
-      
-      alert('Error al guardar en GitHub. Se ha descargado el archivo para actualización manual.');
-    }
+    });
+    this.actualizarProgreso();
   }
 
   calculateGlobalProgress() {
     const buttons = document.querySelectorAll('.ce-status-btn');
     let total = 0;
-    let completed = 0;
-
-    buttons.forEach(btn => {
-      const weight = parseInt(btn.closest('tr').dataset.weight) || 1;
-      total += weight;
-      
-      switch(btn.dataset.status) {
-        case 'completed':
-          completed += weight;
-          break;
-        case 'in-progress':
-          completed += weight * 0.5;
-          break;
-      }
+    let hechos = 0;
+    buttons.forEach((btn) => {
+      const peso = parseInt(btn.closest('tr').dataset.weight) || 1;
+      total += peso;
+      if (btn.dataset.status === 'completed') hechos += peso;
+      else if (btn.dataset.status === 'in-progress') hechos += peso * 0.5;
     });
-
-    return Math.round((completed / total) * 100);
+    return Math.round((hechos / total) * 100);
   }
 
-  async loadOfficialState() {
-    try {
-      console.log('Intentando cargar desde:', this.OFFICIAL_STATE_FILE); // Debug
-      const response = await fetch(this.OFFICIAL_STATE_FILE);
-      console.log('Response status:', response.status); // Debug
-      
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Estado oficial cargado:', data);
-        this.loadState(data.state);
-        alert(`Estado oficial cargado (última actualización: ${new Date(data.lastUpdate).toLocaleString()})`);
-      } else {
-        throw new Error(`Error al cargar el estado oficial: ${response.status}`);
-      }
-    } catch (error) {
-      console.error('Error cargando estado oficial:', error);
-      alert('Error al cargar el estado oficial. Revisa la consola para más detalles.');
-    }
-  }
-
-  getCurrentState() {
-    const state = {};
-    const buttons = document.querySelectorAll('.ce-status-btn');
-    
-    buttons.forEach(btn => {
-      const ceId = btn.dataset.ceId;
-      const status = btn.dataset.status;
-      const weight = parseInt(btn.closest('tr').dataset.weight) || 1;
-      
-      // Calcular el porcentaje basado en el estado
-      let percentage = 0;
-      switch(status) {
-        case 'completed':
-          percentage = 100;
-          break;
-        case 'in-progress':
-          percentage = 50;
-          break;
-        case 'pending':
-          percentage = 0;
-          break;
-      }
-
-      state[ceId] = {
-        status: status,
-        percentage: percentage,
-        weight: weight,
-        lastUpdate: new Date().toISOString()
-      };
-    });
-    return state;
-  }
-
-  loadState(state) {
-    console.log('Cargando estado:', state);
-    Object.entries(state).forEach(([ceId, data]) => {
-        const btn = document.querySelector(`[data-ce-id="${ceId}"]`);
-        if (btn) {
-            // Compatibilidad con formato antiguo
-            const status = typeof data === 'object' ? data.status : data;
-            
-            btn.dataset.status = status;
-            const span = btn.querySelector('span');
-            if (span) {
-                const states = {
-                    'pending': 'No iniciado',
-                    'in-progress': 'En progreso',
-                    'completed': 'Completado'
-                };
-                span.textContent = states[status];
-            }
-        }
-    });
-    this.updateProgress();
-  }
-
-  // Exportar a JSON
   exportToJSON() {
-    const state = this.getCurrentState();
-    const dataStr = JSON.stringify(state, null, 2);
-    this.downloadFile(dataStr, 'estado_ras.json', 'application/json');
+    const datos = JSON.stringify(this.getCurrentState(), null, 2);
+    this.descargar(datos, `estado_${this.moduleId}.json`, 'application/json');
   }
 
-  // Exportar a CSV
   exportToCSV() {
-    const state = this.getCurrentState();
+    const estado = this.getCurrentState();
     let csv = 'CE,Estado\n';
-    Object.entries(state).forEach(([ce, status]) => {
+    Object.entries(estado).forEach(([ce, data]) => {
+      const status = typeof data === 'object' ? data.status : data;
       csv += `${ce},${status}\n`;
     });
-    this.downloadFile(csv, 'estado_ras.csv', 'text/csv');
+    this.descargar(csv, `estado_${this.moduleId}.csv`, 'text/csv');
   }
 
-  // Utilidad para descargar archivos
-  downloadFile(content, fileName, contentType) {
-    const blob = new Blob([content], { type: contentType });
+  descargar(contenido, nombre, mime) {
+    const blob = new Blob([contenido], { type: mime });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = fileName;
+    a.download = nombre;
     a.click();
     window.URL.revokeObjectURL(url);
   }
 
-  // Reset
   resetAll() {
-    if (confirm('¿Estás seguro de que quieres resetear todos los estados?')) {
-      document.querySelectorAll('.ce-status-btn').forEach(btn => {
-        btn.dataset.status = 'pending';
-        const span = btn.querySelector('span');
-        if (span) {
-          span.textContent = 'No iniciado';
-        }
-      });
-      localStorage.clear();
-      this.updateProgress();
-    }
+    if (!confirm('¿Resetear todos los estados del módulo actual?')) return;
+    document.querySelectorAll('.ce-status-btn').forEach((btn) => {
+      btn.dataset.status = 'pending';
+      const span = btn.querySelector('span');
+      if (span) span.textContent = ESTADOS.pending;
+    });
+    localStorage.removeItem(this.claveEstados());
+    this.actualizarProgreso();
   }
 
-  // Añadir este nuevo método a la clase RAManager
-  updateTableHeaders() {
-    // Cambiar los encabezados de "Criterio" a "CE"
-    document.querySelectorAll('tr.w3-blue th').forEach(th => {
-        if (th.textContent === 'Criterio') {
-            th.textContent = 'CE';
-        }
-    });
-
-    // Eliminar "CE " del inicio de cada celda en la primera columna
-    document.querySelectorAll('tbody tr td:first-child').forEach(td => {
-        if (td.textContent.startsWith('CE ')) {
-            td.textContent = td.textContent.replace('CE ', '');
-        }
-    });
+  // Las funciones saveOfficialState / loadOfficialState que tocan Netlify
+  // siguen viviendo en script.js (donde está la lógica de admin).
+  // Aquí dejamos hooks no-op por compatibilidad con el HTML existente:
+  async loadOfficialState() {
+    alert('Cargar Estado Oficial: pendiente de migración multi-módulo.');
   }
 }

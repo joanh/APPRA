@@ -17,7 +17,13 @@
       "Bash(curl -sSL -o .Docs/ASIR-BOE-RD1629-2009.pdf \"https://www.boe.es/boe/dias/2009/12/05/pdfs/BOE-A-2009-19608.pdf\")",
       "Bash(curl -sSL -o .Docs/DAW-BOE-RD686-2010.pdf \"https://www.boe.es/eli/es/rd/2010/05/20/686/dof/spa/pdf\")",
       "Bash(curl -sSL -o .Docs/ASIR-BOE-RD1629-2009.pdf \"https://www.boe.es/eli/es/rd/2009/10/30/1629/dof/spa/pdf\")",
-      "Bash(file .Docs/*.pdf)"
+      "Bash(file .Docs/*.pdf)",
+      "Bash(python *)",
+      "Bash(curl -sS -o /dev/null -w \"index: %{http_code}\\\\n\" http://127.0.0.1:8000/index.html)",
+      "Bash(curl -sS -o /dev/null -w \"modulos: %{http_code}\\\\n\" http://127.0.0.1:8000/JSON/modulos/modulos.json)",
+      "Bash(curl -sS -o /dev/null -w \"dwec: %{http_code}\\\\n\" http://127.0.0.1:8000/JSON/modulos/2daw-dwec.json)",
+      "Bash(curl -sS -o /dev/null -w \"raManager: %{http_code}\\\\n\" http://127.0.0.1:8000/js/modules/raManager.js)",
+      "Bash(curl -sS -o /dev/null -w \"moduleLoader: %{http_code}\\\\n\" http://127.0.0.1:8000/js/modules/moduleLoader.js)"
     ]
   }
 }
