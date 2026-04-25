@@ -677,6 +677,34 @@ body[data-mode="landing"] [data-show="landing"] { display: block; }
     text-decoration: underline;
 }
 
+/* Aviso de proyecto en construcción / hackathon */
+.landing-warning {
+    max-width: 720px;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+    color: #ffe082;
+    text-align: left;
+}
+.landing-warning p {
+    margin: 0.25em 0;
+    line-height: 1.5;
+}
+.landing-warning .fa {
+    color: #ffc107;
+    margin-right: 0.4em;
+}
+.landing-warning a {
+    color: #ffe082;
+    text-decoration: underline;
+}
+.landing-warning strong {
+    color: #fff;
+}
+
 /* Selector de módulo: más prominente en landing */
 body[data-mode="landing"] #moduleSelector {
     max-width: 520px;
