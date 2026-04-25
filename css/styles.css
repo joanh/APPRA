@@ -472,30 +472,33 @@ body #myNavbar .w3-bar-item:hover {
     position: fixed;
     bottom: 24px;
     left: 24px;
-    background-color: rgba(60, 60, 60, 0.85);
-    color: #e0e0e0;
-    width: 42px;
-    height: 42px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1565C0;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.7);
     display: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease;
     z-index: 99;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(3px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-to-top:hover {
-    background-color: rgba(80, 80, 80, 0.95);
-    border-color: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    color: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .scroll-to-top i {
-    font-size: 1.2em;
+    font-size: 1em;
+    font-weight: 900;
 }
 
 .scroll-to-top.visible {
