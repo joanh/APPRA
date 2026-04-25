@@ -1,265 +1,265 @@
 {
   "moduleId": "1daw-ed",
-  "lastUpdate": "2026-04-25T16:16:38.100Z",
-  "globalProgress": 11,
+  "lastUpdate": "2026-04-25T16:37:32.800Z",
+  "globalProgress": 24,
   "state": {
     "1a": {
-      "status": "completed",
-      "percentage": 100,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 20,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "1b": {
       "status": "completed",
       "percentage": 100,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "1c": {
       "status": "completed",
       "percentage": 100,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "1d": {
       "status": "pending",
       "percentage": 0,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "1e": {
-      "status": "pending",
-      "percentage": 0,
-      "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
-    },
-    "1f": {
       "status": "completed",
       "percentage": 100,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
+    },
+    "1f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2a": {
       "status": "pending",
       "percentage": 0,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2b": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2c": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2d": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2e": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2f": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "2g": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3a": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3b": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3c": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "completed",
+      "percentage": 100,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3d": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "completed",
+      "percentage": 100,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3e": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3f": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3g": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "completed",
+      "percentage": 100,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "3h": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4a": {
       "status": "pending",
       "percentage": 0,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4b": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4c": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "in-progress",
+      "percentage": 50,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4d": {
-      "status": "pending",
-      "percentage": 0,
+      "status": "completed",
+      "percentage": 100,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4e": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4f": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "4g": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5a": {
       "status": "pending",
       "percentage": 0,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5b": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5c": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5d": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5e": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5f": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "5g": {
       "status": "pending",
       "percentage": 0,
       "weight": 14,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6a": {
       "status": "pending",
       "percentage": 0,
       "weight": 16,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6b": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6c": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6d": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6e": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6f": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6g": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     },
     "6h": {
       "status": "pending",
       "percentage": 0,
       "weight": 12,
-      "lastUpdate": "2026-04-25T16:16:38.100Z"
+      "lastUpdate": "2026-04-25T16:37:32.801Z"
     }
   }
 }
