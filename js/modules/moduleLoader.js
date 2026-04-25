@@ -11,7 +11,6 @@ export class ModuleLoader {
     this.raManager = raManager;
     this.indice = [];
     this.selector = document.getElementById('moduleSelector');
-    this.info = document.getElementById('moduleInfo');
     this.moduleTitle = document.getElementById('moduleTitle');
     this.moduleSubtitle = document.getElementById('moduleSubtitle');
     this.moduleImage = document.getElementById('moduleImage');
@@ -61,7 +60,6 @@ export class ModuleLoader {
       const datos = await res.json();
       const meta = this.indice.find((m) => m.id === id);
       this.raManager.renderModule(datos);
-      this.actualizarInfo(datos);
       this.actualizarHero(datos, meta);
       document.body.dataset.mode = 'module';
       localStorage.setItem(CLAVE_MODULO_ACTIVO, id);
@@ -82,16 +80,8 @@ export class ModuleLoader {
     }
   }
 
-  actualizarInfo(m) {
-    if (!this.info) return;
-    const totalCEs = m.resultadosAprendizaje.reduce((acc, ra) => acc + ra.criteriosEvaluacion.length, 0);
-    this.info.innerHTML =
-      `<strong>${m.nombre}</strong> · ${m.ciclo} · ${m.grado} · ` +
-      `${m.horas}h · ${m.resultadosAprendizaje.length} RAs · ${totalCEs} CEs`;
-  }
-
   mostrarError(mensaje, err) {
     console.error(mensaje, err);
-    if (this.info) this.info.innerHTML = `<span class="w3-text-red">${mensaje}</span>`;
+    alert(mensaje);
   }
 }
