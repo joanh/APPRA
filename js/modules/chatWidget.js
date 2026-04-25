@@ -12,6 +12,50 @@ const ROLE_LABEL = Object.fromEntries(ROLES.map((r) => [r.id, r.label]));
 const STORAGE_PREFIX = 'chat_';
 const ROLE_PREFIX = 'chatRole_';
 
+// Markdown renderer mínimo y seguro: escapa HTML primero, luego aplica
+// transformaciones por regex sobre el texto ya escapado. No introduce
+// dependencias y es suficiente para la salida típica del chatbot
+// (negritas, cursivas, código inline y en bloque, listas y cabeceras).
+function renderMarkdown(texto) {
+  let s = String(texto)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  // Bloques de código ```...```  (antes que inline para que no choquen)
+  s = s.replace(/```(\w+)?\n?([\s\S]*?)```/g, (_, _lang, code) =>
+    `<pre><code>${code.trimEnd()}</code></pre>`
+  );
+
+  // Código inline `...`
+  s = s.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+
+  // Negrita **texto** y cursiva *texto*
+  s = s.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/(^|[^*\w])\*([^*\n]+)\*(?![*\w])/g, '$1<em>$2</em>');
+
+  // Cabeceras
+  s = s.replace(/^### (.+)$/gm, '<h4>$1</h4>');
+  s = s.replace(/^## (.+)$/gm, '<h3>$1</h3>');
+  s = s.replace(/^# (.+)$/gm, '<h2>$1</h2>');
+
+  // Listas no ordenadas (líneas que empiezan con - o *)
+  s = s.replace(/(?:^|\n)((?:[-*] [^\n]+(?:\n|$))+)/g, (_, lines) => {
+    const items = lines.trim().split('\n').map((l) => `<li>${l.replace(/^[-*] /, '')}</li>`).join('');
+    return `\n<ul>${items}</ul>`;
+  });
+
+  // Listas ordenadas
+  s = s.replace(/(?:^|\n)((?:\d+\. [^\n]+(?:\n|$))+)/g, (_, lines) => {
+    const items = lines.trim().split('\n').map((l) => `<li>${l.replace(/^\d+\. /, '')}</li>`).join('');
+    return `\n<ol>${items}</ol>`;
+  });
+
+  return s;
+}
+
 export class ChatWidget {
   constructor() {
     this.moduleData = null;
@@ -167,10 +211,18 @@ export class ChatWidget {
   appendMensaje(role, contenido) {
     const burbuja = document.createElement('div');
     burbuja.className = `chat-msg chat-msg-${role}`;
-    burbuja.textContent = contenido;
+    this.setContenido(burbuja, role, contenido);
     this.messagesEl.appendChild(burbuja);
     this.scrollAlFinal();
     return burbuja;
+  }
+
+  setContenido(burbuja, role, contenido) {
+    if (role === 'assistant') {
+      burbuja.innerHTML = renderMarkdown(contenido);
+    } else {
+      burbuja.textContent = contenido;
+    }
   }
 
   scrollAlFinal() {
@@ -234,7 +286,7 @@ export class ChatWidget {
           }
           if (data.type === 'delta') {
             textoAsistente += data.text;
-            burbujaAsistente.textContent = textoAsistente;
+            burbujaAsistente.innerHTML = renderMarkdown(textoAsistente);
             this.scrollAlFinal();
           } else if (data.type === 'error') {
             throw new Error(data.message);

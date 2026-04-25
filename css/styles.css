@@ -470,28 +470,28 @@ body #myNavbar .w3-bar-item:hover {
 /* Botón scroll to top */
 .scroll-to-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(33, 150, 243, 0.8);
-    color: white;
-    width: 45px;
-    height: 45px;
+    bottom: 24px;
+    left: 24px;
+    background-color: rgba(60, 60, 60, 0.85);
+    color: #e0e0e0;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     display: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 9999;
+    transition: all 0.2s ease;
+    z-index: 99;
     backdrop-filter: blur(3px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-to-top:hover {
-    background-color: rgba(33, 150, 243, 0.95);
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgba(80, 80, 80, 0.95);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .scroll-to-top i {
@@ -882,6 +882,47 @@ body[data-mode="landing"] #moduleSelector {
     color: #e0e0e0;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-bottom-left-radius: 4px;
+}
+.chat-msg-assistant h2,
+.chat-msg-assistant h3,
+.chat-msg-assistant h4 {
+    margin: 0.5em 0 0.3em;
+    color: #fff;
+    font-weight: 600;
+}
+.chat-msg-assistant h2 { font-size: 1.05rem; }
+.chat-msg-assistant h3 { font-size: 1rem; }
+.chat-msg-assistant h4 { font-size: 0.95rem; color: #cfd8dc; }
+.chat-msg-assistant strong { color: #fff; }
+.chat-msg-assistant em { color: #cfd8dc; }
+.chat-msg-assistant ul,
+.chat-msg-assistant ol {
+    margin: 0.4em 0;
+    padding-left: 1.4em;
+}
+.chat-msg-assistant li { margin: 0.15em 0; }
+.chat-msg-assistant code {
+    background: rgba(33, 150, 243, 0.15);
+    color: #90caf9;
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+}
+.chat-msg-assistant pre {
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.6em 0.8em;
+    margin: 0.5em 0;
+    overflow-x: auto;
+    white-space: pre;
+}
+.chat-msg-assistant pre code {
+    background: transparent;
+    color: #e0e0e0;
+    padding: 0;
+    font-size: 0.85em;
 }
 .chat-msg.streaming::after {
     content: '▎';
