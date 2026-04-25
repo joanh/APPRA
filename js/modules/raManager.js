@@ -267,8 +267,20 @@ export class RAManager {
     window.URL.revokeObjectURL(url);
   }
 
-  resetAll() {
-    if (!confirm('¿Resetear todos los estados del módulo actual?')) return;
+  async resetAll() {
+    const respuesta = await Swal.fire({
+      icon: 'warning',
+      title: '¿Resetear todos los estados?',
+      text: 'Se borrará el progreso del módulo actual.',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, resetear',
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#2196F3',
+      background: '#2d2d2d',
+      color: '#fff',
+    });
+    if (!respuesta.isConfirmed) return;
     document.querySelectorAll('.ce-status-btn').forEach((btn) => {
       btn.dataset.status = 'pending';
       const span = btn.querySelector('span');
@@ -282,6 +294,13 @@ export class RAManager {
   // siguen viviendo en script.js (donde está la lógica de admin).
   // Aquí dejamos hooks no-op por compatibilidad con el HTML existente:
   async loadOfficialState() {
-    alert('Cargar Estado Oficial: pendiente de migración multi-módulo.');
+    Swal.fire({
+      icon: 'info',
+      title: 'En desarrollo',
+      text: 'Cargar Estado Oficial: pendiente de migración multi-módulo.',
+      background: '#2d2d2d',
+      color: '#fff',
+      confirmButtonColor: '#2196F3',
+    });
   }
 }

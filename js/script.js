@@ -8,8 +8,20 @@ const AdminManager = {
     adminToken: null,
 
     requestAccess: async function() {
-        const token = prompt('Introduce el token de administrador:');
-        if (!token) return false;
+        const respuesta = await Swal.fire({
+            title: 'Acceso de administrador',
+            text: 'Introduce tu token:',
+            input: 'password',
+            inputAttributes: { autocapitalize: 'off', autocorrect: 'off' },
+            showCancelButton: true,
+            confirmButtonText: 'Acceder',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#2196F3',
+            background: '#2d2d2d',
+            color: '#fff',
+        });
+        if (!respuesta.isConfirmed || !respuesta.value) return false;
+        const token = respuesta.value;
 
         try {
             const response = await fetch('/.netlify/functions/validateAdmin', {

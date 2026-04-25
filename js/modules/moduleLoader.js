@@ -130,6 +130,13 @@ export class ModuleLoader {
 
   mostrarError(mensaje, err) {
     console.error(mensaje, err);
-    alert(mensaje);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: mensaje,
+      background: '#2d2d2d',
+      color: '#fff',
+      confirmButtonColor: '#2196F3',
+    });
   }
 }
