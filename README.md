@@ -54,6 +54,46 @@ APPRA es un caso de uso real de Claude aplicado a la **educación pública espa�
 
 ---
 
+## Cómo probar la app
+
+### Sin instalar nada — desde el navegador
+
+1. Abre [https://appra.netlify.app/](https://appra.netlify.app/). Aterrizas en la **portada**: logo APPRA, intro y un único selector de módulo en el centro.
+2. **Elige un módulo** del desplegable. La página se transforma: aparece el título del módulo, su imagen propia y todas las tarjetas de RAs con sus CEs literales del BOE.
+3. **Despliega un RA** haciendo click en su cabecera para ver la tabla de CEs (descripción, peso e icono FCT cuando aplique).
+4. **Marca tu progreso** clicando en el botón *No iniciado* → cicla a *En progreso* → *Completado*. La barra global se actualiza ponderada por pesos. Cada estado se guarda en `localStorage` namespaceado por módulo (`ceStates_<id>`), así que cambiar de módulo y volver mantiene tu progreso.
+5. **Busca CEs** desde el cuadro de búsqueda. Al hacer click en el input aparecen *chips* con los términos más frecuentes — específicos del módulo activo (los términos de DWEC son distintos de los de SAD).
+6. **Carga el Estado Oficial** desde el panel del profesor para ver el avance publicado por el docente del curso.
+7. **Cambia de módulo** desde el selector cuando quieras, o vuelve a la portada con *Página Inicio* en el menú lateral / móvil.
+8. **Exporta tu progreso** a JSON o CSV (etiquetas en español: Pendiente / En Progreso / Completado).
+
+### Modo profesor (admin)
+
+Para publicar el estado oficial del curso necesitas la contraseña que el admin configuró como `ADMIN_PASSWORD` en Netlify:
+
+1. Sobre un módulo, marca el avance real del curso (qué CEs se han trabajado, en qué punto están).
+2. Click en *Guardar Estado Oficial* → introduce la contraseña en el SweetAlert.
+3. Si es correcta, aparece un commit nuevo en [`joanh/APPRA`](https://github.com/joanh/APPRA/commits/main) bajo `JSON/oficiales/<moduleId>.json`.
+4. La contraseña se cachea en `sessionStorage` — no se te volverá a pedir mientras la pestaña esté abierta.
+5. Si la contraseña ha rotado entre sesiones, la siguiente acción de guardado devolverá *401* y limpiará la caché automáticamente.
+
+### Atajos útiles
+
+| Acción | Dónde |
+|---|---|
+| Volver a la portada | *Página Inicio* en el sidebar / *Inicio* en navbar móvil |
+| Resetear el progreso del módulo actual | Panel del profesor → *Reset* (solo borra `localStorage`, no toca el estado oficial) |
+| Expandir / colapsar todos los RAs | Botón *Expandir todos* sobre el listado |
+| Limpiar la búsqueda | Click en la *X* dentro del input |
+
+### Edge cases que te puedes encontrar
+
+- **"Sin estado oficial"** al cargar → ese módulo aún no tiene `JSON/oficiales/<id>.json` publicado por el profesor. Es informativo, no un fallo.
+- **"Selecciona un módulo"** al guardar/cargar → estás en la portada; elige un módulo desde el selector primero.
+- **"Sesión expirada"** al guardar → la contraseña ha cambiado en Netlify; pulsa *Guardar* otra vez para introducir la nueva.
+
+---
+
 ## Stack tecnológico
 
 | Capa | Tecnología |
