@@ -486,8 +486,6 @@ body #myNavbar .w3-bar-item:hover {
     z-index: 99;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     -webkit-font-smoothing: antialiased;
-    backdrop-filter: blur(3px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-to-top:hover {
