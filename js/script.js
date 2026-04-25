@@ -263,8 +263,18 @@ window.toggleAllCEs = function() {
         '<i class="fa fa-chevron-down"></i> Expandir todos';
 };
 
-// Función para guardar el estado oficial (requiere autenticación)
+// Función para guardar el estado oficial del módulo activo (requiere autenticación)
 raManager.saveOfficialState = async function() {
+    if (!this.moduleId) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Selecciona un módulo',
+            text: 'Antes de guardar, elige un módulo desde el selector.',
+            background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
+        });
+        return;
+    }
+
     if (!AdminManager.isAdmin) {
         const authorized = await AdminManager.requestAccess();
         if (!authorized) {
@@ -272,9 +282,7 @@ raManager.saveOfficialState = async function() {
                 icon: 'error',
                 title: 'Acceso Denegado',
                 text: 'Solo el administrador puede guardar el estado oficial',
-                background: '#2d2d2d',
-                color: '#fff',
-                confirmButtonColor: '#2196F3'
+                background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
             });
             return;
         }
@@ -282,6 +290,7 @@ raManager.saveOfficialState = async function() {
 
     try {
         const state = {
+            moduleId: this.moduleId,
             lastUpdate: new Date().toISOString(),
             globalProgress: this.calculateGlobalProgress(),
             state: this.getCurrentState()
@@ -292,7 +301,8 @@ raManager.saveOfficialState = async function() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 state: state,
-                token: AdminManager.adminToken
+                token: AdminManager.adminToken,
+                moduleId: this.moduleId
             })
         });
 
@@ -302,20 +312,16 @@ raManager.saveOfficialState = async function() {
         Swal.fire({
             icon: 'success',
             title: 'Estado Guardado',
-            text: 'El estado oficial se ha guardado correctamente',
-            background: '#2d2d2d',
-            color: '#fff',
-            confirmButtonColor: '#2196F3'
+            text: `Publicado en ${data.path || 'el repositorio'}.`,
+            background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
         });
     } catch (error) {
         console.error('Error:', error);
         Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: 'No se pudo guardar el Estado Oficial',
-            background: '#2d2d2d',
-            color: '#fff',
-            confirmButtonColor: '#2196F3'
+            title: 'Error al guardar',
+            text: error.message,
+            background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
         });
     }
 };

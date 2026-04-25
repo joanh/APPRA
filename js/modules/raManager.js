@@ -290,17 +290,52 @@ export class RAManager {
     this.actualizarProgreso();
   }
 
-  // Las funciones saveOfficialState / loadOfficialState que tocan Netlify
-  // siguen viviendo en script.js (donde está la lógica de admin).
-  // Aquí dejamos hooks no-op por compatibilidad con el HTML existente:
+  // saveOfficialState vive en script.js (necesita el AdminManager con el PAT).
+  // loadOfficialState es lectura pública: el JSON publicado por el profesor
+  // está en el propio sitio (Netlify lo sirve desde el repo desplegado).
   async loadOfficialState() {
-    Swal.fire({
-      icon: 'info',
-      title: 'En desarrollo',
-      text: 'Cargar Estado Oficial: pendiente de migración multi-módulo.',
-      background: '#2d2d2d',
-      color: '#fff',
-      confirmButtonColor: '#2196F3',
-    });
+    if (!this.moduleId) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Selecciona un módulo',
+        text: 'Antes de cargar, elige un módulo desde el selector.',
+        background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3',
+      });
+      return;
+    }
+
+    try {
+      const url = `JSON/oficiales/${this.moduleId}.json?ts=${Date.now()}`;
+      const res = await fetch(url, { cache: 'no-store' });
+
+      if (res.status === 404) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Sin estado oficial',
+          text: 'Este módulo aún no tiene un estado oficial publicado.',
+          background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3',
+        });
+        return;
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+      this.loadState(data.state);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Estado oficial cargado',
+        text: `Última actualización: ${new Date(data.lastUpdate).toLocaleString()}`,
+        background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3',
+      });
+    } catch (err) {
+      console.error('Error cargando estado oficial:', err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al cargar',
+        text: err.message,
+        background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3',
+      });
+    }
   }
 }
