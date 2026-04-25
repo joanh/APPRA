@@ -377,11 +377,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # VS Code files for those working on multiple tools
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 *.code-workspace
 
 # Local History for Visual Studio Code
@@ -407,3 +403,14 @@ evol2.md
 
 # Logs de conversaciones con Claude (trabajo en proceso)
 prompts/
+
+# Variables de entorno (NUNCA commitear)
+.env
+.env.local
+.env.*.local
+
+# Configuración local de Claude Code
+.claude/
+
+# Estado oficial obsoleto (ahora vive en JSON/oficiales/<id>.json)
+/official-state.json
