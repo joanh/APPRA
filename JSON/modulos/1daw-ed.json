@@ -1,0 +1,319 @@
+{
+  "id": "1daw-ed",
+  "nombre": "Entornos de Desarrollo",
+  "abreviatura": "ED",
+  "curso": "1º DAW",
+  "ciclo": "Desarrollo de Aplicaciones Web",
+  "familia": "Informática y Comunicaciones",
+  "grado": "Superior",
+  "horas": 50,
+  "descripcionBreve": "Módulo profesional que aborda el reconocimiento de elementos y herramientas en el desarrollo de software, la instalación y uso de entornos integrados de desarrollo, el diseño y realización de pruebas, la optimización y documentación de código, y la elaboración de diagramas de clases y de comportamiento.",
+  "resultadosAprendizaje": [
+    {
+      "id": "ra1",
+      "numero": 1,
+      "peso": 20,
+      "descripcion": "Reconoce los elementos y herramientas que intervienen en el desarrollo de un programa informático, analizando sus características y las fases en las que actúan hasta llegar a su puesta en funcionamiento.",
+      "criteriosEvaluacion": [
+        {
+          "id": "1a",
+          "descripcion": "Se ha reconocido la relación de los programas con los componentes del sistema informático: memoria, procesador y periféricos, entre otros.",
+          "peso": 20,
+          "ffe": false
+        },
+        {
+          "id": "1b",
+          "descripcion": "Se han identificado las fases de desarrollo de una aplicación informática.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1c",
+          "descripcion": "Se han diferenciado los conceptos de código fuente, código objeto y código ejecutable.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1d",
+          "descripcion": "Se han reconocido las características de la generación de código intermedio para su ejecución en máquinas virtuales.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1e",
+          "descripcion": "Se han clasificado los lenguajes de programación.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1f",
+          "descripcion": "Se ha evaluado la funcionalidad ofrecida por las herramientas utilizadas en programación.",
+          "peso": 16,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra2",
+      "numero": 2,
+      "peso": 16,
+      "descripcion": "Evalúa entornos integrados de desarrollo, analizando, sus características para editar código fuente y generar ejecutables.",
+      "criteriosEvaluacion": [
+        {
+          "id": "2a",
+          "descripcion": "Se han instalado entornos de desarrollo, propietarios y libres.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "2b",
+          "descripcion": "Se han añadido y eliminado módulos en el entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "2c",
+          "descripcion": "Se ha personalizado y automatizado el entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "2d",
+          "descripcion": "Se ha configurado el sistema de actualización del entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "2e",
+          "descripcion": "Se han generado ejecutables a partir de código fuente de diferentes lenguajes en un mismo entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "2f",
+          "descripcion": "Se han generado ejecutables a partir de un mismo código fuente con varios entornos de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "2g",
+          "descripcion": "Se han identificado las características comunes y específicas de diversos entornos de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra3",
+      "numero": 3,
+      "peso": 16,
+      "descripcion": "Verifica el funcionamiento de programas, diseñando y realizando pruebas.",
+      "criteriosEvaluacion": [
+        {
+          "id": "3a",
+          "descripcion": "Se han identificado los diferentes tipos de pruebas.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "3b",
+          "descripcion": "Se han definido casos de prueba.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3c",
+          "descripcion": "Se han identificado las herramientas de depuración y prueba de aplicaciones ofrecidas por el entorno de desarrollo.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3d",
+          "descripcion": "Se han utilizado herramientas de depuración para definir puntos de ruptura y seguimiento.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3e",
+          "descripcion": "Se han utilizado las herramientas de depuración para examinar y modificar el comportamiento de un programa en tiempo de ejecución.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3f",
+          "descripcion": "Se han efectuado pruebas unitarias de clases y funciones.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3g",
+          "descripcion": "Se han implementado pruebas automáticas.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3h",
+          "descripcion": "Se han documentado las incidencias detectadas.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra4",
+      "numero": 4,
+      "peso": 16,
+      "descripcion": "Optimiza código empleando las herramientas disponibles en el entorno de desarrollo.",
+      "criteriosEvaluacion": [
+        {
+          "id": "4a",
+          "descripcion": "Se han identificado los patrones de refactorización más usuales.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "4b",
+          "descripcion": "Se han elaborado las pruebas asociadas a la refactorización.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "4c",
+          "descripcion": "Se ha revisado el código fuente usando un analizador de código.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "4d",
+          "descripcion": "Se han identificado las posibilidades de configuración de un analizador de código.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "4e",
+          "descripcion": "Se han aplicado patrones de refactorización con las herramientas que proporciona el entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "4f",
+          "descripcion": "Se ha realizado el control de versiones integrado en el entorno de desarrollo.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "4g",
+          "descripcion": "Se han utilizado herramientas del entorno de desarrollo para documentar las clases.",
+          "peso": 14,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra5",
+      "numero": 5,
+      "peso": 16,
+      "descripcion": "Genera diagramas de clases valorando su importancia en el desarrollo de aplicaciones y empleando las herramientas disponibles en el entorno.",
+      "criteriosEvaluacion": [
+        {
+          "id": "5a",
+          "descripcion": "Se han identificado los conceptos básicos de la programación orientada a objetos.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "5b",
+          "descripcion": "Se ha instalado el módulo del entorno integrado de desarrollo que permite la utilización de diagramas de clases.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "5c",
+          "descripcion": "Se han identificado las herramientas para la elaboración de diagramas de clases.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "5d",
+          "descripcion": "Se ha interpretado el significado de diagramas de clases.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "5e",
+          "descripcion": "Se han trazado diagramas de clases a partir de las especificaciones de las mismas.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "5f",
+          "descripcion": "Se ha generado código a partir de un diagrama de clases.",
+          "peso": 14,
+          "ffe": false
+        },
+        {
+          "id": "5g",
+          "descripcion": "Se ha generado un diagrama de clases mediante ingeniería inversa.",
+          "peso": 14,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra6",
+      "numero": 6,
+      "peso": 16,
+      "descripcion": "Genera diagramas de comportamiento valorando su importancia en el desarrollo de aplicaciones y empleando las herramientas disponibles en el entorno.",
+      "criteriosEvaluacion": [
+        {
+          "id": "6a",
+          "descripcion": "Se han identificado los distintos tipos de diagramas de comportamiento.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "6b",
+          "descripcion": "Se ha reconocido el significado de los diagramas de casos de uso.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6c",
+          "descripcion": "Se han interpretado diagramas de interacción.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6d",
+          "descripcion": "Se han elaborado diagramas de interacción sencillos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6e",
+          "descripcion": "Se ha interpretado el significado de diagramas de actividades.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6f",
+          "descripcion": "Se han elaborado diagramas de actividades sencillos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6g",
+          "descripcion": "Se han interpretado diagramas de estados.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6h",
+          "descripcion": "Se han planteado diagramas de estados sencillos.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    }
+  ]
+}

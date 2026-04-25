@@ -1,0 +1,405 @@
+{
+  "id": "2daw-dwec",
+  "nombre": "Desarrollo Web en Entorno Cliente",
+  "abreviatura": "DWEC",
+  "curso": "2º DAW",
+  "ciclo": "Desarrollo de Aplicaciones Web",
+  "familia": "Informática y Comunicaciones",
+  "grado": "Superior",
+  "horas": 80,
+  "descripcionBreve": "Módulo profesional centrado en el desarrollo de aplicaciones web destinadas a su ejecución por navegadores, integrando lenguajes de programación con lenguajes de marcas, gestión de eventos, manipulación del DOM y comunicación asíncrona.",
+  "resultadosAprendizaje": [
+    {
+      "id": "ra1",
+      "numero": 1,
+      "peso": 16,
+      "descripcion": "Selecciona las arquitecturas y tecnologías de programación sobre clientes Web, identificando y analizando las capacidades y características de cada una.",
+      "criteriosEvaluacion": [
+        {
+          "id": "1a",
+          "descripcion": "Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.",
+          "peso": 20,
+          "ffe": false
+        },
+        {
+          "id": "1b",
+          "descripcion": "Se han identificado las capacidades y mecanismos de ejecución de código de los navegadores Web.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1c",
+          "descripcion": "Se han identificado y caracterizado los principales lenguajes relacionados con la programación de clientes Web.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1d",
+          "descripcion": "Se han reconocido las particularidades de la programación de guiones y sus ventajas y desventajas sobre la programación tradicional.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1e",
+          "descripcion": "Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación de clientes Web.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "1f",
+          "descripcion": "Se han reconocido y evaluado las herramientas de programación sobre clientes Web.",
+          "peso": 16,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra2",
+      "numero": 2,
+      "peso": 14,
+      "descripcion": "Escribe sentencias simples, aplicando la sintaxis del lenguaje y verificando su ejecución sobre navegadores Web.",
+      "criteriosEvaluacion": [
+        {
+          "id": "2a",
+          "descripcion": "Se ha seleccionado un lenguaje de programación de clientes Web en función de sus posibilidades.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "2b",
+          "descripcion": "Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2c",
+          "descripcion": "Se han identificado los ámbitos de utilización de las variables.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2d",
+          "descripcion": "Se han reconocido y comprobado las peculiaridades del lenguaje respecto a las conversiones entre distintos tipos de datos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2e",
+          "descripcion": "Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2f",
+          "descripcion": "Se han utilizado bucles y se ha verificado su funcionamiento.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2g",
+          "descripcion": "Se han añadido comentarios al código.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "2h",
+          "descripcion": "Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra3",
+      "numero": 3,
+      "peso": 14,
+      "descripcion": "Escribe código, identificando y aplicando las funcionalidades aportadas por los objetos predefinidos del lenguaje.",
+      "criteriosEvaluacion": [
+        {
+          "id": "3a",
+          "descripcion": "Se han identificado los objetos predefinidos del lenguaje.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "3b",
+          "descripcion": "Se han analizado los objetos referentes a las ventanas del navegador y los documentos web que contienen.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3c",
+          "descripcion": "Se han escrito sentencias que utilicen los objetos predefinidos del lenguaje para cambiar el aspecto del navegador y el documento que contiene.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3d",
+          "descripcion": "Se han generado textos y etiquetas como resultado de la ejecución de código en el navegador.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3e",
+          "descripcion": "Se han escrito sentencias que utilicen los objetos predefinidos del lenguaje para interactuar con el usuario.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3f",
+          "descripcion": "Se han utilizado las características propias del lenguaje en documentos compuestos por varias ventanas y marcos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3g",
+          "descripcion": "Se han utilizado “cookies” para almacenar información y recuperar su contenido.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "3h",
+          "descripcion": "Se ha depurado y documentado el código.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra4",
+      "numero": 4,
+      "peso": 14,
+      "descripcion": "Programa código para clientes Web analizando y utilizando estructuras definidas por el usuario.",
+      "criteriosEvaluacion": [
+        {
+          "id": "4a",
+          "descripcion": "Se han clasificado y utilizado las funciones predefinidas del lenguaje.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "4b",
+          "descripcion": "Se han creado y utilizado funciones definidas por el usuario.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4c",
+          "descripcion": "Se han reconocido las características del lenguaje relativas a la creación y uso de arrays.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4d",
+          "descripcion": "Se han creado y utilizado arrays.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4e",
+          "descripcion": "Se han reconocido las características de orientación a objetos del lenguaje.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4f",
+          "descripcion": "Se ha creado código para definir la estructura de objetos.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4g",
+          "descripcion": "Se han creado métodos y propiedades.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4h",
+          "descripcion": "Se ha creado código que haga uso de objetos definidos por el usuario.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "4i",
+          "descripcion": "Se ha depurado y documentado el código.",
+          "peso": 11,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra5",
+      "numero": 5,
+      "peso": 14,
+      "descripcion": "Desarrolla aplicaciones Web interactivas integrando mecanismos de manejo de eventos.",
+      "criteriosEvaluacion": [
+        {
+          "id": "5a",
+          "descripcion": "Se han reconocido las posibilidades del lenguaje de marcas relativas a la captura de los eventos producidos.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "5b",
+          "descripcion": "Se han identificado las características del lenguaje de programación relativas a la gestión de los eventos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5c",
+          "descripcion": "Se han diferenciado los tipos de eventos que se pueden manejar.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5d",
+          "descripcion": "Se ha creado un código que capture y utilice eventos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5e",
+          "descripcion": "Se han reconocido las capacidades del lenguaje relativas a la gestión de formularios Web.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5f",
+          "descripcion": "Se han validado formularios web utilizando eventos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5g",
+          "descripcion": "Se han utilizado expresiones regulares para facilitar los procedimientos de validación.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "5h",
+          "descripcion": "Se ha probado y documentado el código.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra6",
+      "numero": 6,
+      "peso": 14,
+      "descripcion": "Desarrolla aplicaciones web analizando y aplicando las características del modelo de objetos del documento.",
+      "criteriosEvaluacion": [
+        {
+          "id": "6a",
+          "descripcion": "Se ha reconocido el modelo de objetos del documento de una página Web.",
+          "peso": 16,
+          "ffe": false
+        },
+        {
+          "id": "6b",
+          "descripcion": "Se han identificado los objetos del modelo, sus propiedades y métodos.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6c",
+          "descripcion": "Se ha creado y verificado un código que acceda a la estructura del documento.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6d",
+          "descripcion": "Se han creado nuevos elementos de la estructura y modificado elementos ya existentes.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6e",
+          "descripcion": "Se han asociado acciones a los eventos del modelo.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6f",
+          "descripcion": "Se han identificado las diferencias que presenta el modelo en diferentes navegadores.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6g",
+          "descripcion": "Se han programado aplicaciones Web de forma que funcionen en navegadores con diferentes implementaciones del modelo.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "6h",
+          "descripcion": "Se han independizado las tres facetas (contenido, aspecto y comportamiento), en aplicaciones Web.",
+          "peso": 12,
+          "ffe": false
+        }
+      ]
+    },
+    {
+      "id": "ra7",
+      "numero": 7,
+      "peso": 14,
+      "descripcion": "Desarrolla aplicaciones Web dinámicas, reconociendo y aplicando mecanismos de comunicación asíncrona entre cliente y servidor.",
+      "criteriosEvaluacion": [
+        {
+          "id": "7a",
+          "descripcion": "Se han evaluado las ventajas e inconvenientes de utilizar mecanismos de comunicación asíncrona entre cliente y servidor Web.",
+          "peso": 12,
+          "ffe": false
+        },
+        {
+          "id": "7b",
+          "descripcion": "Se han analizado los mecanismos disponibles para el establecimiento de la comunicación asíncrona.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7c",
+          "descripcion": "Se han utilizado los objetos relacionados.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7d",
+          "descripcion": "Se han identificado sus propiedades y sus métodos.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7e",
+          "descripcion": "Se ha utilizado comunicación asíncrona en la actualización dinámica del documento Web.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7f",
+          "descripcion": "Se han utilizado distintos formatos en el envío y recepción de información.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7g",
+          "descripcion": "Se han programado aplicaciones Web asíncronas de forma que funcionen en diferentes navegadores.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7h",
+          "descripcion": "Se han clasificado y analizado librerías que faciliten la incorporación de las tecnologías de actualización dinámica a la programación de páginas Web.",
+          "peso": 11,
+          "ffe": false
+        },
+        {
+          "id": "7i",
+          "descripcion": "Se han creado y depurado programas que utilicen estas librerías.",
+          "peso": 11,
+          "ffe": false
+        }
+      ]
+    }
+  ]
+}

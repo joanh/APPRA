@@ -40,10 +40,12 @@ const MODELO = 'claude-opus-4-7';
 
 // Módulos a extraer. Cada entrada apunta a un PDF y especifica qué módulo
 // extraer (los BOCMs de DAW y ASIR contienen el currículo de varios módulos).
+// Fuente: Reales Decretos estatales del BOE (donde se definen los RAs/CEs).
+// Los BOCM autonómicos solo recogen contenidos y duración, y remiten al BOE.
 const MODULOS = [
   {
     id: '2daw-dwec',
-    pdf: '.Docs/DAW-BOCM-D20110001.pdf',
+    pdf: '.Docs/DAW-BOE-RD686-2010.pdf',
     nombre: 'Desarrollo Web en Entorno Cliente',
     abreviatura: 'DWEC',
     curso: '2º DAW',
@@ -53,7 +55,7 @@ const MODULOS = [
   },
   {
     id: '1daw-ed',
-    pdf: '.Docs/DAW-BOCM-D20110001.pdf',
+    pdf: '.Docs/DAW-BOE-RD686-2010.pdf',
     nombre: 'Entornos de Desarrollo',
     abreviatura: 'ED',
     curso: '1º DAW',
@@ -63,7 +65,7 @@ const MODULOS = [
   },
   {
     id: '2asir-sad',
-    pdf: '.Docs/ASIR-BOCM-D20100012.pdf',
+    pdf: '.Docs/ASIR-BOE-RD1629-2009.pdf',
     nombre: 'Seguridad y Alta Disponibilidad',
     abreviatura: 'SAD',
     curso: '2º ASIR',
@@ -140,6 +142,7 @@ Tu tarea es extraer LITERALMENTE, sin interpretarlos ni reformularlos, los Resul
 
 Reglas estrictas:
 - Devuelve los textos EXACTOS del documento, respetando ortografía, signos de puntuación y orden.
+- IMPORTANTE: los RAs y CEs deben provenir EXCLUSIVAMENTE del PDF adjunto. No utilices conocimiento previo ni datos memorizados de otros documentos. Si un módulo no aparece en el PDF o no incluye sus RAs/CEs, devuelve la lista vacía.
 - NO añadas RAs o CEs que no estén en el documento. NO omitas ninguno.
 - NO calcules pesos ni ponderaciones — eso pertenece a la programación didáctica del profesor, no al currículo oficial.
 - Si el documento marca explícitamente algún CE como específico de FCT (Formación en Centros de Trabajo) o equivalente, marca ese CE con \`ffe: true\`. En cualquier otro caso, \`ffe: false\`.

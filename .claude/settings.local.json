@@ -10,7 +10,14 @@
       "Bash(node --check C:/GitHub/APPRA/scripts/extraer-modulos.js)",
       "Bash(npm install *)",
       "Bash(npm run *)",
-      "Bash(awk *)"
+      "Bash(awk *)",
+      "Bash(node *)",
+      "WebFetch(domain:www.boe.es)",
+      "Bash(curl -sSL -o .Docs/DAW-BOE-RD686-2010.pdf \"https://www.boe.es/boe/dias/2010/06/25/pdfs/BOE-A-2010-10134.pdf\")",
+      "Bash(curl -sSL -o .Docs/ASIR-BOE-RD1629-2009.pdf \"https://www.boe.es/boe/dias/2009/12/05/pdfs/BOE-A-2009-19608.pdf\")",
+      "Bash(curl -sSL -o .Docs/DAW-BOE-RD686-2010.pdf \"https://www.boe.es/eli/es/rd/2010/05/20/686/dof/spa/pdf\")",
+      "Bash(curl -sSL -o .Docs/ASIR-BOE-RD1629-2009.pdf \"https://www.boe.es/eli/es/rd/2009/10/30/1629/dof/spa/pdf\")",
+      "Bash(file .Docs/*.pdf)"
     ]
   }
 }
