@@ -8,6 +8,13 @@ const ESTADOS = {
   completed: 'Completado',
 };
 
+// Etiquetas en español para los exports JSON/CSV.
+const ESTADOS_EXPORT = {
+  pending: 'Pendiente',
+  'in-progress': 'En Progreso',
+  completed: 'Completado',
+};
+
 const SIGUIENTE_ESTADO = {
   pending: 'in-progress',
   'in-progress': 'completed',
@@ -226,16 +233,26 @@ export class RAManager {
   }
 
   exportToJSON() {
-    const datos = JSON.stringify(this.getCurrentState(), null, 2);
+    const interno = this.getCurrentState();
+    const traducido = {};
+    Object.entries(interno).forEach(([ce, data]) => {
+      traducido[ce] = {
+        estado: ESTADOS_EXPORT[data.status] || data.status,
+        porcentaje: data.percentage,
+        peso: data.weight,
+        actualizado: data.lastUpdate,
+      };
+    });
+    const datos = JSON.stringify(traducido, null, 2);
     this.descargar(datos, `estado_${this.moduleId}.json`, 'application/json');
   }
 
   exportToCSV() {
     const estado = this.getCurrentState();
-    let csv = 'CE,Estado\n';
+    let csv = 'CE,Estado,Porcentaje,Peso\n';
     Object.entries(estado).forEach(([ce, data]) => {
-      const status = typeof data === 'object' ? data.status : data;
-      csv += `${ce},${status}\n`;
+      const etiqueta = ESTADOS_EXPORT[data.status] || data.status;
+      csv += `${ce},${etiqueta},${data.percentage},${data.weight}\n`;
     });
     this.descargar(csv, `estado_${this.moduleId}.csv`, 'text/csv');
   }
