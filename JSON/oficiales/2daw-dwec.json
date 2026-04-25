@@ -1,0 +1,343 @@
+{
+  "moduleId": "2daw-dwec",
+  "lastUpdate": "2026-04-25T17:11:19.376Z",
+  "globalProgress": 74,
+  "state": {
+    "1a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 20,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "1b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "1c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "1d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "1e": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "1f": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2e": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2f": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2g": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "2h": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3d": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3f": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3g": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.376Z"
+    },
+    "3h": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4g": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4h": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "4i": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5b": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5c": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5d": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5f": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5g": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "5h": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6a": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6b": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6c": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6d": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6f": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6g": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "6h": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7b": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7c": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7d": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7f": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7g": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7h": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    },
+    "7i": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:11:19.377Z"
+    }
+  }
+}
