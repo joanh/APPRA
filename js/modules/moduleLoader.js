@@ -4,7 +4,6 @@
 // módulo en la siguiente visita.
 
 const INDICE_URL = 'JSON/modulos/modulos.json';
-const CLAVE_MODULO_ACTIVO = 'moduloActivo';
 
 // Stopwords para extraer los términos más frecuentes de los CEs.
 // Incluye conectores y los verbos en participio típicos del lenguaje del BOE
@@ -77,12 +76,6 @@ export class ModuleLoader {
 
     this.poblarSelector();
     this.selector.addEventListener('change', () => this.cambiarModulo(this.selector.value));
-
-    const guardado = localStorage.getItem(CLAVE_MODULO_ACTIVO);
-    if (this.indice.find((m) => m.id === guardado)) {
-      this.selector.value = guardado;
-      await this.cambiarModulo(guardado);
-    }
   }
 
   poblarSelector() {
@@ -97,7 +90,6 @@ export class ModuleLoader {
     if (!id) {
       // Volver a la portada (usuario eligió placeholder).
       document.body.dataset.mode = 'landing';
-      localStorage.removeItem(CLAVE_MODULO_ACTIVO);
       document.title = 'APPRA · Asistente de RAs y CEs para FP';
       return;
     }
@@ -110,7 +102,6 @@ export class ModuleLoader {
       this.actualizarHero(datos, meta);
       window.searchSuggestions?.setTerms?.(topTerminos(datos));
       document.body.dataset.mode = 'module';
-      localStorage.setItem(CLAVE_MODULO_ACTIVO, id);
       document.title = `APPRA · ${datos.abreviatura} (${datos.curso})`;
     } catch (err) {
       this.mostrarError(`No se pudo cargar el módulo ${id}.`, err);
