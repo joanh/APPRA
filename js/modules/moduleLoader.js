@@ -6,6 +6,53 @@
 const INDICE_URL = 'JSON/modulos/modulos.json';
 const CLAVE_MODULO_ACTIVO = 'moduloActivo';
 
+// Stopwords para extraer los términos más frecuentes de los CEs.
+// Incluye conectores y los verbos en participio típicos del lenguaje del BOE
+// ("Se han identificado...", "Se han caracterizado...") que aportan ruido.
+const STOPWORDS = new Set([
+  'para', 'como', 'entre', 'otros', 'otras', 'sobre', 'según', 'desde', 'hasta',
+  'mediante', 'durante', 'cada', 'tanto', 'también', 'donde', 'cuando', 'aunque',
+  'estos', 'estas', 'esos', 'esas', 'este', 'esta', 'aquel', 'aquella',
+  'identificado', 'identificada', 'identificadas', 'identificados',
+  'caracterizado', 'caracterizada', 'caracterizadas', 'caracterizados',
+  'reconocido', 'reconocida', 'reconocidas', 'reconocidos',
+  'utilizado', 'utilizada', 'utilizadas', 'utilizados',
+  'aplicado', 'aplicada', 'aplicadas', 'aplicados',
+  'analizado', 'analizada', 'analizadas', 'analizados',
+  'realizado', 'realizada', 'realizadas', 'realizados',
+  'descrito', 'descrita', 'descritas', 'descritos',
+  'establecido', 'establecida', 'establecidas', 'establecidos',
+  'verificado', 'verificada', 'verificadas', 'verificados',
+  'comprobado', 'comprobada', 'comprobadas', 'comprobados',
+  'valorado', 'valorada', 'valoradas', 'valorados',
+  'evaluado', 'evaluada', 'evaluadas', 'evaluados',
+  'documentado', 'documentada', 'documentadas', 'documentados',
+  'clasificado', 'clasificada', 'clasificadas', 'clasificados',
+  'seleccionado', 'seleccionada', 'seleccionadas', 'seleccionados',
+  'diferenciado', 'diferenciada', 'diferenciadas', 'diferenciados',
+  'sido', 'siendo', 'tiene', 'tienen', 'tener', 'haber', 'hacer',
+  'distintos', 'distintas', 'diferentes', 'principales', 'mismas', 'mismos',
+  'partir', 'través', 'forma', 'modo', 'caso', 'casos', 'tipo', 'tipos',
+]);
+
+function topTerminos(moduleData, n = 10) {
+  const conteo = new Map();
+  moduleData.resultadosAprendizaje.forEach((ra) => {
+    ra.criteriosEvaluacion.forEach((ce) => {
+      ce.descripcion
+        .toLowerCase()
+        .replace(/[.,;:()¿?¡!"«»\-—/]/g, ' ')
+        .split(/\s+/)
+        .filter((w) => w.length >= 6 && !STOPWORDS.has(w))
+        .forEach((w) => conteo.set(w, (conteo.get(w) || 0) + 1));
+    });
+  });
+  return [...conteo.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, n)
+    .map(([w]) => w);
+}
+
 export class ModuleLoader {
   constructor(raManager) {
     this.raManager = raManager;
@@ -61,6 +108,7 @@ export class ModuleLoader {
       const meta = this.indice.find((m) => m.id === id);
       this.raManager.renderModule(datos);
       this.actualizarHero(datos, meta);
+      window.searchSuggestions?.setTerms?.(topTerminos(datos));
       document.body.dataset.mode = 'module';
       localStorage.setItem(CLAVE_MODULO_ACTIVO, id);
       document.title = `APPRA · ${datos.abreviatura} (${datos.curso})`;

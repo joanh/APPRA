@@ -1,25 +1,19 @@
+// Sugerencias de términos para la búsqueda de CEs.
+// Los términos se recalculan cada vez que se carga un módulo (ver moduleLoader.js)
+// extrayendo las palabras más frecuentes de las descripciones de los CEs.
+
 class SearchSuggestions {
     constructor() {
         this.searchInput = document.getElementById('searchCE');
         this.suggestionsDiv = document.getElementById('searchSuggestions');
-        this.suggestionsContainer = this.suggestionsDiv.querySelector('.suggestion-tags');
-        
-        // Los 10 términos más frecuentes
-        this.commonTerms = [
-            'objetos', 'eventos', 'funciones', 'documentos', 'aplicaciones',
-            'estructuras', 'navegador', 'formularios', 'métodos', 'propiedades'
-        ];
-
-        this.init();
-    }
-
-    init() {
-        this.createSuggestionTags();
+        this.suggestionsContainer = this.suggestionsDiv?.querySelector('.suggestion-tags');
         this.setupEventListeners();
     }
 
-    createSuggestionTags() {
-        this.commonTerms.forEach(term => {
+    setTerms(terms) {
+        if (!this.suggestionsContainer) return;
+        this.suggestionsContainer.innerHTML = '';
+        terms.forEach((term) => {
             const tag = document.createElement('span');
             tag.className = 'suggestion-tag';
             tag.textContent = term;
@@ -31,39 +25,31 @@ class SearchSuggestions {
     handleTagClick(term) {
         this.searchInput.value = term;
         this.hideSuggestions();
-        // Disparar el evento input para activar la búsqueda
         this.searchInput.dispatchEvent(new Event('input'));
     }
 
     showSuggestions() {
-        this.suggestionsDiv.style.display = 'block';
+        if (this.suggestionsDiv) this.suggestionsDiv.style.display = 'block';
     }
 
     hideSuggestions() {
-        this.suggestionsDiv.style.display = 'none';
+        if (this.suggestionsDiv) this.suggestionsDiv.style.display = 'none';
     }
 
     setupEventListeners() {
-        // Mostrar sugerencias al hacer clic en el input
+        if (!this.searchInput || !this.suggestionsDiv) return;
         this.searchInput.addEventListener('click', () => this.showSuggestions());
-
-        // Ocultar sugerencias cuando se hace clic fuera
         document.addEventListener('click', (e) => {
             if (!this.searchInput.contains(e.target) && !this.suggestionsDiv.contains(e.target)) {
                 this.hideSuggestions();
             }
         });
-
-        // Ocultar sugerencias cuando se empieza a escribir
         this.searchInput.addEventListener('input', () => {
-            if (this.searchInput.value.length > 0) {
-                this.hideSuggestions();
-            }
+            if (this.searchInput.value.length > 0) this.hideSuggestions();
         });
     }
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    new SearchSuggestions();
-}); 
+    window.searchSuggestions = new SearchSuggestions();
+});
