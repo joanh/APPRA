@@ -76,6 +76,14 @@ window.raManager = new RAManager();
 window.moduleLoader = new ModuleLoader(window.raManager);
 window.moduleLoader.init();
 
+// Volver a la portada (cambia el modo a landing y scrollea arriba).
+window.irAInicio = function() {
+    const selector = document.getElementById('moduleSelector');
+    if (selector) selector.value = '';
+    window.moduleLoader?.cambiarModulo('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 // Configurar el enlace de email (codificado por seguridad)
 const emailForm = document.getElementById("emailLinkID");
 const email = "joseaheras@protonmail.com"
