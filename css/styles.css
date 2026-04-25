@@ -471,7 +471,7 @@ body #myNavbar .w3-bar-item:hover {
 .scroll-to-top {
     position: fixed;
     bottom: 24px;
-    left: 24px;
+    left: 88px;
     background-color: #ffffff;
     color: #1565C0;
     width: 44px;
@@ -500,6 +500,13 @@ body #myNavbar .w3-bar-item:hover {
 
 .scroll-to-top.visible {
     display: flex;
+}
+
+/* En móvil el sidebar está oculto (w3-hide-small), reposicionamos el botón al borde. */
+@media screen and (max-width: 600px) {
+    .scroll-to-top {
+        left: 24px;
+    }
 }
 
 /* Estilos para panel de búsqueda y control */
