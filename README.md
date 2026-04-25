@@ -253,40 +253,43 @@ Esto lee los PDFs de `.Docs/`, llama a Claude Opus 4.7 con el `output_config.for
 
 El profesor puede **publicar** un estado oficial (qué CEs ha cubierto el curso, qué nivel se ha alcanzado, etc.) que el resto de usuarios puede **cargar**. Por debajo, esto se persiste como un commit en el repositorio (`JSON/oficiales/<moduleId>.json`).
 
-### Diseño elegido (Opción A — PAT del usuario)
+### Diseño elegido (Opción B — token en servidor + contraseña corta)
 
-- El admin (`joanh`) introduce su **Personal Access Token** de GitHub la primera vez en cada sesión.
-- El token se valida contra `https://api.github.com/user` (Netlify Function `validateAdmin.js`) y se confirma que el `login` corresponde al admin autorizado.
-- El token viaja a `saveState.js` que escribe en el repo vía la API de GitHub.
-- El token **nunca** se almacena ni en localStorage ni en variables de entorno del servidor; vive en memoria del navegador y se pierde al cerrar pestaña.
+- El **PAT de GitHub** vive como variable de entorno en Netlify (`GITHUB_TOKEN`). El usuario nunca lo ve.
+- El admin se autentica introduciendo una **contraseña corta** que se compara contra `ADMIN_PASSWORD` (otra env var).
+- La Netlify Function actúa como relé: si la contraseña coincide, hace el commit a GitHub usando el token del servidor.
+- La contraseña se cachea en `sessionStorage` durante la sesión de la pestaña — el admin la introduce una vez y se reutiliza para sucesivos guardados.
+- Cualquier usuario puede **cargar** el estado oficial sin contraseña (es lectura pública del JSON).
 
-✅ **Ventajas:** sin secretos en Netlify · sin riesgo de filtración del lado servidor · cualquier admin (con permisos en el repo) puede publicar.
+✅ **Ventajas:** UX cómoda (contraseña corta, una vez por sesión) · token GitHub nunca expuesto al cliente · ideal para demos en hackathon.
 
-⚠️ **A tener en cuenta:** el admin tiene que introducir el token cada sesión.
+⚠️ **A tener en cuenta:** hay un secreto que custodiar en Netlify (`ADMIN_PASSWORD`). Si se filtra, hay que rotarlo y redeploy.
 
-### Crear el PAT (admin)
+### Setup en Netlify (admin, una sola vez)
 
-1. Ir a [GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens](https://github.com/settings/personal-access-tokens/new).
-2. Configurar el token:
-   - **Resource owner:** tu usuario (`joanh` para el repo oficial)
-   - **Repository access:** *Only select repositories* → `joanh/APPRA`
-   - **Repository permissions:**
-     - `Contents`: **Read and write**
-     - `Metadata`: Read-only (se asigna solo)
-   - **Expiration:** la que prefieras (90 días razonable para hackathon)
-3. **Copiar el token** en cuanto se muestre — no se vuelve a ver. Guardarlo en un gestor de contraseñas, no en archivos de texto.
+1. **Crear un PAT classic** en [GitHub → Settings → Developer settings → Personal access tokens (classic)](https://github.com/settings/tokens/new):
+   - *Note:* `APPRA - Netlify State Manager`
+   - *Expiration:* 90 days
+   - *Scopes:* `repo` (basta para escribir)
+   - *Generate token* → copiar el `ghp_...` a un gestor de contraseñas
+
+2. **Añadir variables de entorno** en Netlify (*Site settings → Environment variables*):
+   - `GITHUB_TOKEN` = el `ghp_...` que acabas de generar
+   - `ADMIN_PASSWORD` = una contraseña memorable (única, mínimo 8 caracteres)
+
+3. **Redeploy** del sitio (basta con un `git push` o un *Deploy → Trigger deploy*) para que las nuevas env vars cojan efecto.
 
 ### Flujo de uso
 
 | Acción | Quién | Auth |
 |---|---|---|
 | Cargar estado oficial | Cualquier usuario | Pública (lectura del JSON) |
-| Guardar estado oficial | Solo admin (`joanh`) | PAT introducido por SweetAlert |
+| Guardar estado oficial | Admin | Contraseña → cachée en `sessionStorage` |
 
-### Rotar / revocar el token
+### Rotar / revocar credenciales
 
-- En cualquier momento desde [tu lista de tokens fine-grained](https://github.com/settings/personal-access-tokens).
-- Si revocas, la siguiente acción de "Guardar Estado Oficial" devolverá un error 401 y pedirá un token nuevo.
+- **PAT GitHub:** desde [tu lista de tokens](https://github.com/settings/tokens). Tras rotar, actualiza `GITHUB_TOKEN` en Netlify y redeploy.
+- **Contraseña admin:** cambia `ADMIN_PASSWORD` en Netlify y redeploy. Las pestañas con sessionStorage cacheada empezarán a recibir 401 y se limpiarán solas pidiendo la nueva.
 
 ---
 

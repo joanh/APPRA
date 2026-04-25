@@ -2,15 +2,25 @@ import { PARTICLE_CONFIG } from "./constants.js";
 import { RAManager } from './modules/raManager.js';
 import { ModuleLoader } from './modules/moduleLoader.js';
 
-// Gestor de acceso administrativo
+// Gestor de acceso administrativo. La contraseña se cachea en sessionStorage
+// (vive sólo mientras la pestaña esté abierta) para no preguntarla cada save.
 const AdminManager = {
     isAdmin: false,
-    adminToken: null,
+    adminPassword: null,
+    SESSION_KEY: 'appra_admin_password',
+
+    init: function() {
+        const cached = sessionStorage.getItem(this.SESSION_KEY);
+        if (cached) {
+            this.isAdmin = true;
+            this.adminPassword = cached;
+        }
+    },
 
     requestAccess: async function() {
         const respuesta = await Swal.fire({
             title: 'Acceso de administrador',
-            text: 'Introduce tu token:',
+            text: 'Introduce la contraseña:',
             input: 'password',
             inputAttributes: { autocapitalize: 'off', autocorrect: 'off' },
             showCancelButton: true,
@@ -21,52 +31,47 @@ const AdminManager = {
             color: '#fff',
         });
         if (!respuesta.isConfirmed || !respuesta.value) return false;
-        const token = respuesta.value;
+        const password = respuesta.value;
 
         try {
             const response = await fetch('/.netlify/functions/validateAdmin', {
                 method: 'POST',
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
-                    'X-Content-Type-Options': 'nosniff'  // Previene MIME-sniffing
+                    'X-Content-Type-Options': 'nosniff'
                 },
-                body: JSON.stringify({ token })
+                body: JSON.stringify({ password })
             });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            
-            if (data.isAdmin) {
+
+            const data = await response.json().catch(() => ({}));
+            if (response.ok && data.isAdmin) {
                 this.isAdmin = true;
-                this.adminToken = token;
-                
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Acceso Concedido',
-                    text: 'Autenticado como administrador',
-                    background: '#2d2d2d',
-                    color: '#fff',
-                    confirmButtonColor: '#2196F3'
-                });
+                this.adminPassword = password;
+                sessionStorage.setItem(this.SESSION_KEY, password);
                 return true;
             }
         } catch (error) {
-            console.error('Error específico:', error.message);
-            console.error('Error validando token:', error);
+            console.error('Error validando contraseña:', error);
         }
 
-        this.isAdmin = false;
-        this.adminToken = null;
+        this.clearAccess();
+        Swal.fire({
+            icon: 'error',
+            title: 'Contraseña incorrecta',
+            text: 'No se pudo validar el acceso. Inténtalo de nuevo.',
+            background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
+        });
         return false;
     },
 
     clearAccess: function() {
         this.isAdmin = false;
-        this.adminToken = null;
+        this.adminPassword = null;
+        sessionStorage.removeItem(this.SESSION_KEY);
     }
 };
+
+AdminManager.init();
 
 // Inicializar el fondo de partículas
 particlesJS("particles-js", PARTICLE_CONFIG);
@@ -277,41 +282,46 @@ raManager.saveOfficialState = async function() {
 
     if (!AdminManager.isAdmin) {
         const authorized = await AdminManager.requestAccess();
-        if (!authorized) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Acceso Denegado',
-                text: 'Solo el administrador puede guardar el estado oficial',
-                background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
-            });
-            return;
-        }
+        if (!authorized) return;
     }
 
-    try {
-        const state = {
-            moduleId: this.moduleId,
-            lastUpdate: new Date().toISOString(),
-            globalProgress: this.calculateGlobalProgress(),
-            state: this.getCurrentState()
-        };
+    const state = {
+        moduleId: this.moduleId,
+        lastUpdate: new Date().toISOString(),
+        globalProgress: this.calculateGlobalProgress(),
+        state: this.getCurrentState()
+    };
 
+    try {
         const response = await fetch('/.netlify/functions/saveState', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                state: state,
-                token: AdminManager.adminToken,
+                state,
+                password: AdminManager.adminPassword,
                 moduleId: this.moduleId
             })
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
+
+        if (response.status === 401) {
+            // Contraseña inválida (rotada o stale en sessionStorage).
+            AdminManager.clearAccess();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Sesión expirada',
+                text: 'La contraseña ya no es válida. Vuelve a pulsar Guardar para introducirla de nuevo.',
+                background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
+            });
+            return;
+        }
+
         if (!response.ok) throw new Error(data.error || 'Error al guardar el estado');
 
         Swal.fire({
             icon: 'success',
-            title: 'Estado Guardado',
+            title: 'Estado guardado',
             text: `Publicado en ${data.path || 'el repositorio'}.`,
             background: '#2d2d2d', color: '#fff', confirmButtonColor: '#2196F3'
         });

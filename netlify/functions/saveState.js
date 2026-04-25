@@ -1,13 +1,14 @@
-// Guarda el estado oficial de un módulo concreto en JSON/oficiales/<moduleId>.json
-// del repositorio joanh/APPRA, usando el token GitHub del admin.
+// Guarda el estado oficial de un módulo en JSON/oficiales/<moduleId>.json
+// del repositorio joanh/APPRA.
 //
-// Diseño Opción A: el token NO se almacena en variables de entorno del servidor;
-// viaja en cada petición, se valida que pertenece a `joanh` y se descarta tras
-// la operación. Mínima superficie de exposición del lado servidor.
+// Diseño Opción B: el token de GitHub vive como variable de entorno en Netlify
+// (`GITHUB_TOKEN`). El admin se autentica con una contraseña corta que se
+// compara contra `ADMIN_PASSWORD`. Si coincide, la function actúa como relé
+// hacia la API de GitHub usando el token del servidor — el usuario nunca ve
+// ni manipula el PAT.
 
 const REPO_OWNER = 'joanh';
 const REPO_NAME = 'APPRA';
-const ADMIN_LOGIN = 'joanh';
 const MODULE_ID_PATTERN = /^[a-z0-9][a-z0-9-]{1,40}$/;
 
 exports.handler = async function (event) {
@@ -15,47 +16,48 @@ exports.handler = async function (event) {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method Not Allowed' }) };
   }
 
-  try {
-    const { state, token, moduleId } = JSON.parse(event.body);
+  if (!process.env.ADMIN_PASSWORD || !process.env.GITHUB_TOKEN) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Servidor mal configurado: faltan variables de entorno' }),
+    };
+  }
 
-    if (!token) throw new Error('Falta token de GitHub');
-    if (!state) throw new Error('Falta el estado a guardar');
+  try {
+    const { state, password, moduleId } = JSON.parse(event.body);
+
+    if (!password) throw new Error('Falta contraseña');
+    if (!state) throw new Error('Falta estado');
     if (!moduleId) throw new Error('Falta moduleId');
     if (!MODULE_ID_PATTERN.test(moduleId)) throw new Error('moduleId con formato inválido');
 
-    // 1. Verificar quién es el portador del token.
-    const userResponse = await fetch('https://api.github.com/user', {
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'User-Agent': 'APPRA-Netlify-Function',
-      },
-    });
-    if (!userResponse.ok) throw new Error('Token de GitHub inválido o sin permisos');
-    const userData = await userResponse.json();
-    if (userData.login !== ADMIN_LOGIN) {
-      throw new Error(`Usuario no autorizado: ${userData.login}`);
+    if (password !== process.env.ADMIN_PASSWORD) {
+      return {
+        statusCode: 401,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Contraseña incorrecta' }),
+      };
     }
 
+    const token = process.env.GITHUB_TOKEN;
     const path = `JSON/oficiales/${moduleId}.json`;
     const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
+    const ghHeaders = {
+      Authorization: `token ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'APPRA-Netlify-Function',
+    };
 
-    // 2. Obtener SHA del archivo si ya existe (para sobrescribir).
+    // Recuperar SHA del archivo si ya existe (necesario para sobrescribir).
     let sha;
-    const existing = await fetch(apiUrl, {
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'User-Agent': 'APPRA-Netlify-Function',
-      },
-    });
+    const existing = await fetch(apiUrl, { headers: ghHeaders });
     if (existing.ok) {
       sha = (await existing.json()).sha;
     } else if (existing.status !== 404) {
-      throw new Error(`No se pudo consultar el estado actual (HTTP ${existing.status})`);
+      throw new Error(`Consulta a GitHub falló (HTTP ${existing.status})`);
     }
 
-    // 3. Hacer commit del nuevo estado.
     const content = Buffer.from(JSON.stringify(state, null, 2)).toString('base64');
     const updateBody = {
       message: `Update official state — ${moduleId}`,
@@ -65,12 +67,7 @@ exports.handler = async function (event) {
 
     const updateResponse = await fetch(apiUrl, {
       method: 'PUT',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json',
-        'User-Agent': 'APPRA-Netlify-Function',
-      },
+      headers: { ...ghHeaders, 'Content-Type': 'application/json' },
       body: JSON.stringify(updateBody),
     });
 
