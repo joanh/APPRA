@@ -1,6 +1,7 @@
 import { PARTICLE_CONFIG } from "./constants.js";
 import { RAManager } from './modules/raManager.js';
 import { ModuleLoader } from './modules/moduleLoader.js';
+import { ChatWidget } from './modules/chatWidget.js';
 
 // Gestor de acceso administrativo. La contraseña se cachea en sessionStorage
 // (vive sólo mientras la pestaña esté abierta) para no preguntarla cada save.
@@ -76,9 +77,10 @@ AdminManager.init();
 // Inicializar el fondo de partículas
 particlesJS("particles-js", PARTICLE_CONFIG);
 
-// Crear instancia global del gestor de RAs y cargador de módulos
+// Crear instancia global del gestor de RAs, cargador de módulos y chatbot
 window.raManager = new RAManager();
-window.moduleLoader = new ModuleLoader(window.raManager);
+window.chatWidget = new ChatWidget();
+window.moduleLoader = new ModuleLoader(window.raManager, window.chatWidget);
 window.moduleLoader.init();
 
 // Volver a la portada (cambia el modo a landing y scrollea arriba).

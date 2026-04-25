@@ -323,6 +323,55 @@
     <button id="scrollToTop" class="scroll-to-top">
       <i class="fa fa-arrow-up"></i>
     </button>
+
+    <!-- Widget del chatbot (solo visible con módulo activo) -->
+    <button id="chatFab" class="chat-fab" data-show="module" aria-label="Abrir asistente">
+      <i class="fa fa-robot"></i>
+    </button>
+
+    <aside id="chatPanel" class="chat-panel" role="dialog" aria-label="Asistente IA">
+      <header class="chat-header">
+        <h3 id="chatHeading" class="chat-heading">Asistente</h3>
+        <div class="chat-header-actions">
+          <span id="chatCurrentRole" class="chat-role-tag"></span>
+          <button id="chatChangeRoleBtn" class="chat-icon-btn" title="Cambiar rol" aria-label="Cambiar rol">
+            <i class="fa fa-user-pen"></i>
+          </button>
+          <button id="chatClearBtn" class="chat-icon-btn" title="Limpiar conversación" aria-label="Limpiar conversación">
+            <i class="fa fa-broom"></i>
+          </button>
+          <button id="chatCloseBtn" class="chat-icon-btn" title="Cerrar" aria-label="Cerrar">
+            <i class="fa fa-xmark"></i>
+          </button>
+        </div>
+      </header>
+
+      <div id="chatRolePicker" class="chat-role-picker">
+        <p class="chat-role-prompt">¿Quién eres?</p>
+        <button data-role="profesor" class="chat-role-btn">
+          <i class="fa fa-chalkboard-user"></i><span>Profesor</span>
+        </button>
+        <button data-role="alumno" class="chat-role-btn">
+          <i class="fa fa-user-graduate"></i><span>Alumno</span>
+        </button>
+        <button data-role="familia" class="chat-role-btn">
+          <i class="fa fa-people-roof"></i><span>Familia</span>
+        </button>
+        <p class="chat-role-note w3-small">Tu elección se guarda durante esta sesión.</p>
+      </div>
+
+      <div id="chatBody" class="chat-body">
+        <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+        <div class="chat-input-row">
+          <textarea id="chatInput" rows="2" placeholder="Pregunta lo que quieras sobre el módulo…"
+                    aria-label="Mensaje al asistente"></textarea>
+          <button id="chatSendBtn" class="chat-send-btn" aria-label="Enviar">
+            <i class="fa fa-paper-plane"></i>
+          </button>
+        </div>
+        <p class="chat-disclaimer w3-small">Powered by Claude Opus 4.7. Las respuestas pueden contener errores; verifícalas con tu profesor.</p>
+      </div>
+    </aside>
 </body>
 
 </html>

@@ -53,8 +53,9 @@ function topTerminos(moduleData, n = 10) {
 }
 
 export class ModuleLoader {
-  constructor(raManager) {
+  constructor(raManager, chatWidget = null) {
     this.raManager = raManager;
+    this.chatWidget = chatWidget;
     this.indice = [];
     this.selector = document.getElementById('moduleSelector');
     this.moduleTitle = document.getElementById('moduleTitle');
@@ -91,6 +92,7 @@ export class ModuleLoader {
       // Volver a la portada (usuario eligió placeholder).
       document.body.dataset.mode = 'landing';
       document.title = 'APPRA · Asistente de RAs y CEs para FP';
+      this.chatWidget?.setModule(null);
       return;
     }
     try {
@@ -101,6 +103,7 @@ export class ModuleLoader {
       this.raManager.renderModule(datos);
       this.actualizarHero(datos, meta);
       window.searchSuggestions?.setTerms?.(topTerminos(datos));
+      this.chatWidget?.setModule(datos);
       document.body.dataset.mode = 'module';
       document.title = `APPRA · ${datos.abreviatura} (${datos.curso})`;
     } catch (err) {
