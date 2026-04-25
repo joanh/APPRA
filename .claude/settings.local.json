@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:cerebralvalley.ai)"
+      "WebFetch(domain:cerebralvalley.ai)",
+      "WebSearch",
+      "Bash(curl -sSL -o \"C:/GitHub/APPRA/.Docs/DAW-BOCM-D20110001.pdf\" \"https://www.comunidad.madrid/sites/default/files/doc/educacion/fp/FP-Ensenanza-IFCS03-LOE-Curriculo-D20110001.pdf\")",
+      "Bash(curl -sSL -o \"C:/GitHub/APPRA/.Docs/ASIR-BOCM-D20100012.pdf\" \"https://www.comunidad.madrid/sites/default/files/doc/educacion/fp/FP-Ensenanza-IFCS01-LOE-Curriculo-D20100012.pdf\")",
+      "Bash(file C:/GitHub/APPRA/.Docs/*.pdf)",
+      "Skill(claude-api)"
     ]
   }
 }
