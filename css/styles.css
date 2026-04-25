@@ -589,6 +589,16 @@ footer .tech-stack i:hover {
     transform: scale(1.2);
 }
 
+footer .tech-stack .claude-mark svg {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+footer .tech-stack .claude-mark:hover svg {
+    transform: scale(1.2) rotate(22.5deg);
+}
+
 footer a {
     text-decoration: none;
 }
