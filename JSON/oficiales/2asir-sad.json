@@ -1,0 +1,355 @@
+{
+  "moduleId": "2asir-sad",
+  "lastUpdate": "2026-04-25T17:00:11.964Z",
+  "globalProgress": 40,
+  "state": {
+    "1a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1e": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1f": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1g": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1h": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "1i": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2a": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2b": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2e": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2g": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2h": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "2i": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3a": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3b": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3c": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3d": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3e": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "3g": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4a": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4b": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4c": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4d": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4e": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4g": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "4h": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5c": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5d": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5e": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5g": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5h": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.964Z"
+    },
+    "5i": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6a": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 12,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6b": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6c": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6d": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6e": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6f": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6g": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6h": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "6i": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 11,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7a": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 16,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7b": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7c": {
+      "status": "in-progress",
+      "percentage": 50,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7d": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7e": {
+      "status": "completed",
+      "percentage": 100,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7f": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    },
+    "7g": {
+      "status": "pending",
+      "percentage": 0,
+      "weight": 14,
+      "lastUpdate": "2026-04-25T17:00:11.965Z"
+    }
+  }
+}
