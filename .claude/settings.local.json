@@ -7,7 +7,10 @@
       "Bash(curl -sSL -o \"C:/GitHub/APPRA/.Docs/ASIR-BOCM-D20100012.pdf\" \"https://www.comunidad.madrid/sites/default/files/doc/educacion/fp/FP-Ensenanza-IFCS01-LOE-Curriculo-D20100012.pdf\")",
       "Bash(file C:/GitHub/APPRA/.Docs/*.pdf)",
       "Skill(claude-api)",
-      "Bash(node --check C:/GitHub/APPRA/scripts/extraer-modulos.js)"
+      "Bash(node --check C:/GitHub/APPRA/scripts/extraer-modulos.js)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(awk *)"
     ]
   }
 }
