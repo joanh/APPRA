@@ -23,7 +23,8 @@
       "Bash(curl -sS -o /dev/null -w \"modulos: %{http_code}\\\\n\" http://127.0.0.1:8000/JSON/modulos/modulos.json)",
       "Bash(curl -sS -o /dev/null -w \"dwec: %{http_code}\\\\n\" http://127.0.0.1:8000/JSON/modulos/2daw-dwec.json)",
       "Bash(curl -sS -o /dev/null -w \"raManager: %{http_code}\\\\n\" http://127.0.0.1:8000/js/modules/raManager.js)",
-      "Bash(curl -sS -o /dev/null -w \"moduleLoader: %{http_code}\\\\n\" http://127.0.0.1:8000/js/modules/moduleLoader.js)"
+      "Bash(curl -sS -o /dev/null -w \"moduleLoader: %{http_code}\\\\n\" http://127.0.0.1:8000/js/modules/moduleLoader.js)",
+      "WebFetch(domain:appra.netlify.app)"
     ]
   }
 }
