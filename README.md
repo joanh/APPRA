@@ -1,6 +1,11 @@
-# APPRA — Asistente de RAs y CEs para FP
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status: WIP](https://img.shields.io/badge/status-WIP-orange.svg)](#roadmap)
+[![Built with Claude Opus 4.7](https://img.shields.io/badge/Built%20with-Claude%20Opus%204.7-D97757?logo=anthropic&logoColor=white)](https://www.anthropic.com/claude)
+[![Hackathon: Cerebral Valley](https://img.shields.io/badge/Hackathon-Cerebral%20Valley-7B61FF)](https://cerebralvalley.ai/e/built-with-4-7-hackathon)
+[![PWA](https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c73dbfa1-e7ad-4e5e-a743-65f2eaf63972/deploy-status)](https://appra.netlify.app/)
 
-> **Built with Claude Opus 4.7** · Hackathon [Cerebral Valley](https://cerebralvalley.ai/e/built-with-4-7-hackathon)
+# APPRA — Asistente de RAs y CEs para FP
 
 PWA educativa para profesores y alumnos de Formación Profesional (FP) en España. Gestiona y consulta los Resultados de Aprendizaje (RAs) y Criterios de Evaluación (CEs) de los módulos de la familia de Informática, con un asistente IA basado en Claude Opus 4.7 para resolver dudas en tiempo real.
 
