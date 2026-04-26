@@ -377,7 +377,7 @@ El profesor puede **publicar** un estado oficial (qué CEs ha cubierto el curso,
 
 ## Créditos
 
-- **Autor:** Jose Angel Heras ([@joanh](https://github.com/joanh)) — joseaheras@gmail.com
+- **Autor:** Jose Angel Heras ([@joanh](https://github.com/joanh)) — joseaheras@pm.me
 - **IA:** [Anthropic Claude Opus 4.7](https://www.anthropic.com/claude) — usado tanto para construir el proyecto como para alimentar el chatbot.
 - **Hackathon:** [Built with Opus 4.7 · Cerebral Valley](https://cerebralvalley.ai/e/built-with-4-7-hackathon)
 - **Datos curriculares:** BOE, BOCM y Consejería de Educación de la Comunidad de Madrid.
