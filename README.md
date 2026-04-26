@@ -171,7 +171,8 @@ APPRA/
 │
 ├── scripts/
 │   ├── extraer-modulos.js           Extrae RAs/CEs de los PDFs con Claude
-│   └── verificar-pdfs.js            Sanity check: módulos por PDF
+│   ├── verificar-pdfs.js            Sanity check: módulos por PDF
+│   └── og-card.html                 Plantilla de la social card OG (1200×630)
 │
 ├── JSON/
 │   ├── modulos/
