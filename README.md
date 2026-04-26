@@ -4,7 +4,7 @@
 
 PWA educativa para profesores y alumnos de Formación Profesional (FP) en España. Gestiona y consulta los Resultados de Aprendizaje (RAs) y Criterios de Evaluación (CEs) de los módulos de la familia de Informática, con un asistente IA basado en Claude Opus 4.7 para resolver dudas en tiempo real.
 
-**Demo en vivo:** https://appra.netlify.app/ _(despliegue del hackathon, en curso)_
+**Demo en vivo:** https://appra.netlify.app/
 
 ---
 
@@ -22,15 +22,11 @@ APPRA centraliza esta información, la hace accesible desde cualquier dispositiv
 
 ## Hackathon — Built with Opus 4.7
 
-Este proyecto se presenta al hackathon **Built with Opus 4.7** organizado por Cerebral Valley.
+Proyecto presentado al hackathon **Built with Opus 4.7** organizado por [Cerebral Valley](https://cerebralvalley.ai/e/built-with-4-7-hackathon) en abril de 2026.
 
-<!-- TODO: completar con la información oficial de https://cerebralvalley.ai/e/built-with-4-7-hackathon/details -->
-
-- **Plazo de entrega:** _por confirmar_
-- **Modelo requerido:** Claude Opus 4.7 (`claude-opus-4-7`)
-- **Formato de entrega:** _por confirmar_
-- **Criterios de evaluación:** _por confirmar_
-- **Premios:** _por confirmar_
+- **Modelo:** Claude Opus 4.7 (`claude-opus-4-7`)
+- **Repositorio:** [github.com/joanh/APPRA](https://github.com/joanh/APPRA) — Open Source ([MIT](LICENSE))
+- **Demo:** [appra.netlify.app](https://appra.netlify.app/)
 
 ### Por qué encaja en el hackathon
 
@@ -119,8 +115,9 @@ Para publicar el estado oficial del curso necesitas la contraseña que el admin 
 │                       │         │                        │
 │  index.html           │ ◄─────► │  validateAdmin.js      │
 │  js/raManager.js      │  HTTPS  │  saveState.js          │
-│  JSON/modulos/*.json  │         │  updateGitHub.js       │
-│  localStorage         │         │  chatbot.js (próx.)    │
+│  js/chatWidget.js     │         │  chatbot.mjs           │
+│  JSON/modulos/*.json  │         │                        │
+│  localStorage         │         │                        │
 └───────────────────────┘         └────────────────────────┘
                                             │
                                             ▼
@@ -141,7 +138,7 @@ Los datos curriculares (`JSON/modulos/*.json`) son la fuente de verdad: se carga
 ```
 APPRA/
 ├── index.html                       Página principal (landing + vista módulo)
-├── manifest.json, site.webmanifest  Manifest PWA + iconos
+├── site.webmanifest                 Manifest PWA + iconos
 ├── netlify.toml                     Configuración Netlify + headers de seguridad
 │
 ├── .Docs/                           PDFs oficiales fuente (BOE / BOCM)
@@ -159,8 +156,9 @@ APPRA/
 │       └── moduleLoader.js          Selector + carga JSON + landing/módulo
 │
 ├── netlify/functions/
-│   ├── validateAdmin.js             Valida tokens GitHub (admin = joanh)
-│   └── saveState.js                 Guarda estado oficial por módulo
+│   ├── validateAdmin.js             Valida la contraseña admin contra ADMIN_PASSWORD
+│   ├── saveState.js                 Guarda estado oficial por módulo (commit a GitHub)
+│   └── chatbot.mjs                  Chatbot multi-rol con Claude Opus 4.7 (streaming SSE)
 │
 ├── scripts/
 │   ├── extraer-modulos.js           Extrae RAs/CEs de los PDFs con Claude
@@ -261,12 +259,16 @@ El **índice** (`JSON/modulos/modulos.json`) es ligero, solo lo necesario para e
 ### Variables de entorno (`.env`)
 
 ```bash
-# Solo necesario para regenerar los JSONs de los módulos con scripts/extraer-modulos.js
+# Para el chatbot (servidor) y para regenerar los JSONs con scripts/extraer-modulos.js
 ANTHROPIC_API_KEY=sk-ant-...
+
+# Solo si quieres probar el modo profesor en local (Netlify Functions)
+GITHUB_TOKEN=ghp_...
+ADMIN_PASSWORD=lo-que-elijas
 ```
 
-> **Nota:** APPRA **no necesita variables de entorno con tokens de GitHub** en el servidor.
-> El modo profesor (Opción A) usa el PAT del propio admin desde el navegador — ver más abajo.
+> En producción, estas variables viven como *Environment variables* en Netlify.
+> Nunca commitees el `.env` — está gitignored.
 
 ### Arrancar el entorno
 
@@ -346,15 +348,14 @@ El profesor puede **publicar** un estado oficial (qué CEs ha cubierto el curso,
 - [x] Búsqueda en CEs + chips de términos frecuentes recalculados por módulo
 - [x] Exportación a JSON y CSV con etiquetas en español
 - [x] Diálogos unificados con SweetAlert2 (alerts, confirms y prompts)
-- [x] Modo profesor — autenticación con PAT de GitHub (Opción A)
+- [x] **Modo profesor — token GitHub en servidor + contraseña admin corta** (Opción B)
+- [x] **Asistente IA con Claude Opus 4.7** + system prompts diferenciados por rol (profesor / alumno / familia)
+- [x] **Estado oficial por módulo** (`saveState.js` → `JSON/oficiales/<id>.json`)
 - [x] Manifest PWA + iconos
 - [x] Headers de seguridad
 
-### En desarrollo (hackathon)
+### Pendiente
 
-- [ ] Adaptación de `saveState.js` al repo `joanh/APPRA` y a estado por módulo (`JSON/oficiales/<id>.json`)
-- [ ] Asistente IA con Claude Opus 4.7
-- [ ] Prompts de sistema diferenciados por rol (profesor / alumno / familia)
 - [ ] Service Worker (PWA offline real)
 
 ### Próximamente
@@ -378,4 +379,4 @@ El profesor puede **publicar** un estado oficial (qué CEs ha cubierto el curso,
 
 ## Licencia
 
-Proyecto en proceso de apertura como **Open Source** tras el hackathon. Licencia pendiente de definir (probablemente MIT o GPL-3.0).
+[MIT](LICENSE). Libre uso, modificación y redistribución del código y de los JSON de los módulos. Los Reales Decretos del BOE incluidos en `.Docs/` son legislación española y por tanto dominio público.

@@ -1,7 +1,7 @@
 {
-    "name": "Desarrollo Web en Entorno Cliente",
-    "short_name": "2DAWie",
-    "description": "Aplicación de seguimiento de RAs y CEs para Desarrollo Web en Entorno Cliente",
+    "name": "APPRA — Asistente de RAs y CEs para FP",
+    "short_name": "APPRA",
+    "description": "Consulta los Resultados de Aprendizaje y Criterios de Evaluación de los módulos de Formación Profesional, extraídos del BOE oficial con Claude Opus 4.7.",
     "icons": [
         {
             "src": "/icon/android-chrome-192x192.png",
@@ -14,8 +14,10 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#09599b",
+    "background_color": "#05253f",
     "display": "standalone",
-    "start_url": "/"
+    "start_url": "/",
+    "scope": "/",
+    "lang": "es"
 }
