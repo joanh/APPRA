@@ -1,9 +1,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status: WIP](https://img.shields.io/badge/status-WIP-orange.svg)](#roadmap)
-[![Built with Claude Opus 4.7](https://img.shields.io/badge/Built%20with-Claude%20Opus%204.7-D97757?logo=anthropic&logoColor=white)](https://www.anthropic.com/claude)
-[![Hackathon: Cerebral Valley](https://img.shields.io/badge/Hackathon-Cerebral%20Valley-7B61FF)](https://cerebralvalley.ai/e/built-with-4-7-hackathon)
-[![PWA](https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c73dbfa1-e7ad-4e5e-a743-65f2eaf63972/deploy-status)](https://appra.netlify.app/)
+<a href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Built%20with-Claude%20Opus%204.7-D97757?logo=anthropic&logoColor=white" alt="Built with Claude Opus 4.7"></a>
+<a href="https://cerebralvalley.ai/e/built-with-4-7-hackathon" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Hackathon-Cerebral%20Valley-7B61FF" alt="Hackathon: Cerebral Valley"></a>
+<a href="https://web.dev/progressive-web-apps/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white" alt="PWA"></a>
+<a href="https://appra.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/c73dbfa1-e7ad-4e5e-a743-65f2eaf63972/deploy-status" alt="Netlify Status"></a>
 
 # APPRA — Asistente de RAs y CEs para FP
 
