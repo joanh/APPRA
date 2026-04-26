@@ -5,6 +5,10 @@
 <a href="https://web.dev/progressive-web-apps/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white" alt="PWA"></a>
 <a href="https://appra.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/c73dbfa1-e7ad-4e5e-a743-65f2eaf63972/deploy-status" alt="Netlify Status"></a>
 
+<p align="center">
+  <img src="img/appra_logo.png" alt="APPRA logo" width="30%">
+</p>
+
 # APPRA — Asistente de RAs y CEs para FP
 
 PWA educativa para profesores y alumnos de Formación Profesional (FP) en España. Gestiona y consulta los Resultados de Aprendizaje (RAs) y Criterios de Evaluación (CEs) de los módulos de la familia de Informática, con un asistente IA basado en Claude Opus 4.7 para resolver dudas en tiempo real.
