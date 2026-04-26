@@ -6,7 +6,7 @@
 <a href="https://appra.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/c73dbfa1-e7ad-4e5e-a743-65f2eaf63972/deploy-status" alt="Netlify Status"></a>
 
 <p align="center">
-  <img src="img/appra_logo.png" alt="APPRA logo" width="30%">
+  <img src="img/appra_logo.png" alt="APPRA logo" width="15%">
 </p>
 
 # APPRA — Asistente de RAs y CEs para FP
