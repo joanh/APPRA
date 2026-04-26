@@ -4,7 +4,7 @@
 
 Si descubres una vulnerabilidad en APPRA, **NO** abras un issue público.
 
-Escribe a **joseaheras@gmail.com** con:
+Escribe a **joseaheras@pm.me** con:
 
 - Descripción de la vulnerabilidad
 - Pasos para reproducirla
