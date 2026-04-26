@@ -327,6 +327,22 @@ body .w3-sidebar.w3-bar-block a.w3-bar-item:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Enlace al repositorio en GitHub (cabecera del sidebar) */
+.sidebar-github {
+    display: inline-block;
+    padding: 8px;
+    margin: 4px 0;
+    line-height: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sidebar-github:hover,
+.sidebar-github:focus-visible {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 10px rgba(137, 87, 229, 0.6));
+    outline: none;
+}
+
 /* Contenido principal */
 body #main {
     margin-left: 72px !important;

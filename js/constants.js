@@ -19,7 +19,7 @@ export const PARTICLE_CONFIG = {
       random: true,
       anim: {
         enable: true,
-        speed: 2,
+        speed: 1,
         size_min: 0.3,
         sync: false
       }
@@ -33,7 +33,7 @@ export const PARTICLE_CONFIG = {
     },
     move: {
       enable: true,
-      speed: 2.5,
+      speed: 1.25,
       direction: "none",
       random: false,
       straight: false,
